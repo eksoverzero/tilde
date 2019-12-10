@@ -1,0 +1,81 @@
+[options]
+font             = Terminus 12
+#font            = Monospace 11
+audible_bell     = false
+mouse_autohide   = false
+allow_bold       = true
+cursor_shape     = block
+browser		     = firefox
+clickable_url    = true
+cursor_blink     = system
+cursor_shape     = block
+highlight        = #2f2f2f
+scrollback_lines = 10000
+word_chars       = -A-Za-z0-9,./?%&#:_=+@~
+geometry         = 660x510
+
+
+#[colors]
+
+# special
+#foreground      = #c0c5ce
+#foreground_bold = #c0c5ce
+#cursor          = #c0c5ce
+#background      = #1c2027
+
+# black
+#color0  = #2b303b
+#color8  = #65737e
+
+# red
+#color1  = #bf616a
+#color9  = #bf616a
+
+# green
+#color2  = #a3be8c
+#color10 = #a3be8c
+
+# yellow
+#color3  = #ebcb8b
+#color11 = #ebcb8b
+
+# blue
+#color4  = #8fa1b3
+#color12 = #8fa1b3
+
+# magenta
+#color5  = #b48ead
+#color13 = #b48ead
+
+# cyan
+#color6  = #96b5b4
+#color14 = #96b5b4
+
+# white
+#color7  = #c0c5ce
+#color15 = #eff1f5
+
+[colors]
+background = #121212
+cursor = #bbbbbb
+foreground = #bbbbbb
+color0 = #121212
+color1 = #fa2573
+color2 = #98e123
+color3 = #dfd460
+color4 = #1080d0
+color5 = #8700ff
+color6 = #43a8d0
+color7 = #bbbbbb
+color8 = #555555
+color9 = #f6669d
+color10 = #b1e05f
+color11 = #fff26d
+color12 = #00afff
+color13 = #af87ff
+color14 = #51ceff
+color15 = #ffffff
+colorBD = #ffffff
+colorIT =
+colorUL =
+
