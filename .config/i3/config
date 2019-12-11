@@ -167,7 +167,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # lock the screen
-bindsym $mod+Escape exec ~/.config/i3/lock.sh
+bindsym $mod+Escape exec ~/.config/i3/scripts/lock.sh
 
 # put the system to sleep
 bindsym $mod+Shift+Escape exec systemctl suspend
