@@ -12,12 +12,40 @@ sudo apt-get install -y build-essential git ubuntu-drivers-common mesa-utils mes
 ### i3
 
 ```
-sudo apt-get install -y i3 feh scrot conky py3status python3-tzlocal
+sudo apt-get install -y i3 feh scrot conky
+```
+
+Py3status:
+
+```
+sudo apt-gt install python3-pip
+pip3 install py3status
+```
+
+### Vim
+
+Installing Plug:
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Installing plugins:
+
+```
+:PlugInstall
 ```
 
 ### Fonts
 
-Copy fonts to `/usr/local/share/fonts`
+Hack font
+
+```
+wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+unzip Hack-v3.003-ttf.zip
+mv ttf/* /usr/local/share/fonts
+```
 
 ### Termite
 
