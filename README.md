@@ -10,7 +10,7 @@ sudo apt-get install -y build-essential apt-transport-https git unzip ubuntu-dri
 ### i3
 
 ```
-sudo apt-get install -y i3 rofi feh scrot dunst conky lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo apt-get install -y i3 rofi feh scrot dunst lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 ```
 
 Py3status:
@@ -18,6 +18,12 @@ Py3status:
 ```
 sudo apt-gt install python3 python3-pip
 sudo pip3 install py3status pytz tzlocal
+```
+
+### Monitoring
+
+```
+sudo apt install conky lm-sensors hddtemp
 ```
 
 ### Vim
@@ -99,6 +105,16 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 
 sudo apt update
 sudo apt install brave-browser
+```
+
+### Typora
+
+```
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+
+sudo apt-get update
+sudo apt-get install typora
 ```
 
 ### RVM
