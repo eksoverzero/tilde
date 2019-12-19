@@ -1,37 +1,35 @@
-order += "conky cpu"
-order += "conky memory"
+order += "loadavg"
 order += "clock"
 
-conky {
-  config = {
-    'console_bar_fill': "'|'",
-    'console_bar_unfill': "'_'",
-    'default_bar_width': 10,
+# show load averages with different colors + thresholds
+loadavg {
+  format =  '[\?color=1avg {1avg}%] '
+  format += '[\?color=5avg {5avg}%] '
+  format += '[\?color=15avg {15avg}%]'
+
+  thresholds = {
+    '1avg': [
+      (0, ''),
+      (20, 'good'),
+      (40, 'degraded'),
+      (60, '#ffa500'),
+      (80, 'bad')
+    ],
+    '5avg': [
+      (0, ''),
+      (20, 'good'),
+      (40, 'degraded'),
+      (60, '#ffa500'),
+      (80, 'bad')
+    ],
+    '15avg': [
+      (0, ''),
+      (20, 'good'),
+      (40, 'degraded'),
+      (60, '#ffa500'),
+      (80, 'bad')
+    ],
   }
-}
-
-conky cpu {
-  format = 'CPU '
-  format += '[\?color=cpu {cpu cpu}% \[{cpubar}\]] '
-  #format += '[\?color=cpu.cpu0 {cpu cpu0}% {cpubar cpu0}] '
-  #format += '[\?color=cpu.cpu1 {cpu cpu1}% {cpubar cpu1}] '
-  #format += '[\?color=cpu.cpu2 {cpu cpu2}% {cpubar cpu2}] '
-  #format += '[\?color=cpu.cpu3 {cpu cpu3}% {cpubar cpu3}]'
-
-  thresholds = [
-    (0, 'darkgray'), (0.001, 'good'), (50, 'degraded'),
-    (75, 'orange'), (85, 'bad')
-  ]
-}
-
-conky memory {
-  format = 'Memory '
-  #format += 'Memory [\?color=lightskyblue {mem}/{memmax}] '
-  format += '[\?color=memperc {memperc}% \[{membar}\]]'
-  thresholds = [
-    (0, 'darkgray'), (0.001, 'good'), (50, 'degraded'),
-    (75, 'orange'), (85, 'bad')
-  ]
 }
 
 clock {

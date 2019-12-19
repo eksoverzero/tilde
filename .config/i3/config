@@ -272,4 +272,4 @@ bar {
 
 # Wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg
-
+exec --no-startup-id dunst -config ~/.dunstrc

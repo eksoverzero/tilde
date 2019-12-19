@@ -10,7 +10,7 @@ sudo apt-get install -y build-essential apt-transport-https git unzip ubuntu-dri
 ### i3
 
 ```
-sudo apt-get install -y i3 rofi feh scrot conky lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo apt-get install -y i3 rofi feh scrot dunst conky lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 ```
 
 Py3status:
