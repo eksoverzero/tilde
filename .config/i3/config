@@ -248,7 +248,7 @@ focus_follows_mouse no
 
 # Configure the bar
 bar {
-  font "pango: Hack 11"
+  font pango: Hack 11
   position top
   tray_output none
   status_command py3status -c ~/.config/py3status/config

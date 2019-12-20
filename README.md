@@ -20,6 +20,20 @@ sudo apt-gt install python3 python3-pip
 sudo pip3 install py3status pytz tzlocal
 ```
 
+### Power
+
+Off:
+
+```
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
+On:
+
+```
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
 ### Monitoring
 
 ```

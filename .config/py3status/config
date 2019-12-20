@@ -3,7 +3,8 @@ order += "clock"
 
 # show load averages with different colors + thresholds
 loadavg {
-  format =  '[\?color=1avg {1avg}%] '
+  format = ''
+  format += '[\?color=1avg {1avg}%] '
   format += '[\?color=5avg {5avg}%] '
   format += '[\?color=15avg {15avg}%]'
 
