@@ -206,39 +206,24 @@ bindsym $mod+r mode "Resize Mode"
 new_window pixel 1
 new_float pixel 1
 
-font pango:Hack 10
+# Gaps (i3-gaps)
+gaps inner 5
+gaps outer 0
 
-set_from_resource $focused.color.border i3-wm.client.focused.color.border "#33393B"
-set_from_resource $focused.color.background i3-wm.client.focused.color.background "#121212"
-set_from_resource $focused.color.text i3-wm.client.focused.color.text "#eaeaea"
-set_from_resource $focused.color.indicator i3-wm.client.focused.color.indicator "#eaeaea"
-set_from_resource $focused.color.child_border i3-wm.client.focused.color.child_border
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
 
-set_from_resource $focused_inactive.color.border i3-wm.client.focused_inactive.color.border "#33393B"
-set_from_resource $focused_inactive.color.background i3-wm.client.focused_inactive.color.background "#121212"
-set_from_resource $focused_inactive.color.text i3-wm.client.focused_inactive.color.text "#a1a1a1"
-set_from_resource $focused_inactive.color.indicator i3-wm.client.focused_inactive.color.indicator "#484e50"
-set_from_resource $focused_inactive.color.child_border i3-wm.client.focused_inactive.color.child_border
+# General font
+font pango:Hack 12
 
-set_from_resource $unfocused.color.border i3-wm.client.unfocused.color.border "#121212"
-set_from_resource $unfocused.color.background i3-wm.client.unfocused.color.background "#121212"
-set_from_resource $unfocused.color.text i3-wm.client.unfocused.color.text "#fdfdfd"
-set_from_resource $unfocused.color.indicator i3-wm.client.unfocused.color.indicator "#bfbfbf"
-set_from_resource $unfocused.color.child_border i3-wm.client.unfocused.color.child_border
+# Window Border
+for_window [class="^.*"] border pixel 0
 
-set_from_resource $urgent.color.border i3-wm.client.urgent.color.border "#121212"
-set_from_resource $urgent.color.background i3-wm.client.urgent.color.background "#121212"
-set_from_resource $urgent.color.text i3-wm.client.urgent.color.text "#fdfdfd"
-set_from_resource $urgent.color.indicator i3-wm.client.urgent.color.indicator "#fbfbfb"
-set_from_resource $urgent.color.child_border i3-wm.client.urgent.color.child_border
-
-
-# Window Border color
-# class                 border                             background                         text                               indicator                          child_border
-client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
-client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
-client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
-client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+# class                 border  background text    indicator child_border
+client.focused          #33393B #121212    #EAEAEA #EAEAEA
+client.focused_inactive #33393B #121212    #A1A1A1 #484E50
+client.unfocused        #121212 #121212    #FDFDFD #BFBFBF
+client.urgent           #121212 #121212    #FDFDFD #FBFBFB
 
 # Enable popup during fullscreen
 popup_during_fullscreen smart
@@ -248,28 +233,32 @@ focus_follows_mouse no
 
 # Configure the bar
 bar {
-  font pango: Hack 11
+  font pango: Hack, FontAwesome, 12
   position top
-  tray_output none
+  tray_output primary
   status_command py3status -c ~/.config/py3status/config
   separator_symbol " "
   strip_workspace_numbers yes
 
   colors {
-    background "#33393B"
+    background "#202020"
     statusline "#EAEAEA"
     separator  "#081419"
 
     #                  BORDER    BACKGROUND TEXT
     focused_workspace  "#33393B" "#33393B"  "#EAEAEA"
-    active_workspace   "#33393B" "#33393B"  "#586E76"
-    inactive_workspace "#33393B" "#33393B"  "#666666"
-    urgent_workspace   "#33393B" "#33393B"  "#000000"
+    active_workspace   "#202020" "#202020"  "#586E76"
+    inactive_workspace "#202020" "#202020"  "#666666"
+    urgent_workspace   "#202020" "#202020"  "#000000"
   }
 }
 
 # Run programs when i3 starts
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg
+#exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg
+
 exec --no-startup-id dunst -config ~/.dunstrc
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+
+exec_always --no-startup-id gnome-power-manager
