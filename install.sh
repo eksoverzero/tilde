@@ -38,7 +38,7 @@ sudo make install
 # py3status
 echo "Installing and configuring py3status..."
 sudo apt-get install -y python3 python3-pip
-sudo pip3 install py3status pytz tzlocal
+sudo pip3 install py3status pytz tzlocal i3ipc
 ln -s $PWD/.config/py3status ~/.config/py3status
 
 # Dunst

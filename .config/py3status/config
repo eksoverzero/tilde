@@ -1,12 +1,20 @@
-order += "loadavg"
+order += "spotify"
+#order += "loadavg"
+order += "volume_status"
 order += "clock"
+
+spotify {
+  format = "{artist}: {title}"
+  format_down = ""
+  button_play_pause = 1
+}
 
 # show load averages with different colors + thresholds
 loadavg {
-  format = ''
-  format += '[\?color=1avg {1avg}%] '
-  format += '[\?color=5avg {5avg}%] '
-  format += '[\?color=15avg {15avg}%]'
+  format = "  "
+  format += '[\?color=1avg {1min}] '
+  format += '[\?color=5avg {5min}] '
+  format += '[\?color=15avg {15min}]'
 
   thresholds = {
     '1avg': [
@@ -33,8 +41,14 @@ loadavg {
   }
 }
 
-clock {
-  format = "{Local}"
-  format_time = "%Y-%m-%d %H:%M:%S "
+volume_status {
+  format = " {percentage}%"
+  max_volume = 100s
+  format_muted = " "
+  on_click 3 = "exec i3-sensible-terminal -e alsamixer"
 }
 
+clock {
+  format = "{Local}"
+  format_time = "%Y-%m-%d %H:%M "
+}

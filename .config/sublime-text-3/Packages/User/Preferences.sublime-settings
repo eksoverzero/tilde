@@ -8,6 +8,10 @@
 	[
 		"Vintage"
 	],
+	"new_window_settings":
+	{
+		"menu_visible": false
+	},
 	"tab_size": 2,
 	"theme": "Gravity.sublime-theme",
 	"translate_tabs_to_spaces": true,
