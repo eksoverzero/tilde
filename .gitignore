@@ -1,2 +1,4 @@
 .vim
 !.vim/plugins.vim
+.config/regolith/
+!.config/regolith/i3/
