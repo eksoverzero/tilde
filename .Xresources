@@ -1,18 +1,9 @@
-! This is the Regolith root-level Xresources file.
-!
-! -- Styles - Colors
-#include "~/.Xresources.d/colors"
+#include ".Xresources.d/colors"
+#include ".Xresources.d/typeface"
+#include ".Xresources.d/theme"
 
-! -- Styles - Fonts
-#include "~/.Xresources.d/typeface"
-
-! -- Styles - Theme
-#include "~/.Xresources.d/theme"
-
-! -- Applications
-! These files map values defined above into specific app settings.
-#include "~/.Xresources.d/st-term"
-#include "~/.Xresources.d/i3-wm"
-#include "~/.Xresources.d/i3xrocks"
-#include "~/.Xresources.d/rofi"
-#include "~/.Xresources.d/gnome"
+#include ".Xresources.d/st-term"
+!#include ".Xresources.d/i3-wm"
+#include ".Xresources.d/i3xrocks"
+#include ".Xresources.d/rofi"
+#include ".Xresources.d/gnome"

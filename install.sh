@@ -96,7 +96,7 @@ ln -s $PWD/.gitignore_global ~/.gitignore_global
 echo "Installing and configuring Vim..."
 sudo apt-get install -y vim
 rm -fR ~/.vim && \
-ln -s $PWD/.vim ~/.vim
+ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

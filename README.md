@@ -1,11 +1,27 @@
 # ~
 
+## Some manual, unspecific things
 
-### Monitoring
+### Remove the Ubuntu splash screen
 
 ```
-sudo apt install conky lm-sensors hddtemp
+sudo vi /etc/default/grub
 ```
+
+```
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX_DEFAULT=""
+```
+
+```
+sudo apt remove plymouth-theme-ubuntu-text
+```
+
+```
+sudo update-grub2
+```
+
+## Software
 
 ### Sublime Text
 
@@ -49,4 +65,10 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+```
+
+### venv
+
+```
+python3 -m pip install --user virtualenv
 ```

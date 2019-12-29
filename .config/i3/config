@@ -241,15 +241,15 @@ bar {
   strip_workspace_numbers yes
 
   colors {
-    background "#202020"
-    statusline "#EAEAEA"
-    separator  "#081419"
+    separator  #268bd2
+    background #202020
+    statusline #cecece
 
-    #                  BORDER    BACKGROUND TEXT
-    focused_workspace  "#33393B" "#33393B"  "#EAEAEA"
-    active_workspace   "#202020" "#202020"  "#586E76"
-    inactive_workspace "#202020" "#202020"  "#666666"
-    urgent_workspace   "#202020" "#202020"  "#000000"
+    #                  BORDER  BACKGROUND TEXT
+    focused_workspace  #2a2a2a #2a2a2a    #cecece
+    active_workspace   #202020 #202020    #555555
+    inactive_workspace #202020 #202020    #555555
+    urgent_workspace   #dc322f #dc322f    #fdf6e3
   }
 }
 
@@ -259,6 +259,3 @@ bar {
 #exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg
 
 exec --no-startup-id dunst -config ~/.dunstrc
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-
-exec_always --no-startup-id gnome-power-manager
