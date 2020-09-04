@@ -1,57 +1,15 @@
 # ~
 
-## Some manual, unspecific things
-
-### Remove the Ubuntu splash screen
-
-```
-sudo vi /etc/default/grub
-```
-
-```
-#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-GRUB_CMDLINE_LINUX_DEFAULT=""
-```
-
-```
-sudo apt remove plymouth-theme-ubuntu-text
-```
-
-```
-sudo update-grub2
-```
+Ubuntu 20.04 LTS with.
 
 ## Software
 
-### Sublime Text
+Some things that aren't available otherwise.
 
-```
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+### Sublime Text Packages
 
-sudo apt-get update
-sudo apt-get install sublime-text
-```
+* [Gravity Theme](https://packagecontrol.io/packages/Theme%20-%20Gravity)
 
-### Brave
-
-```
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-sudo apt update
-sudo apt install brave-browser
-```
-
-### Typora
-
-```
-wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-sudo add-apt-repository 'deb https://typora.io/linux ./'
-
-sudo apt-get update
-sudo apt-get install typora
-```
 
 ### RVM
 
@@ -70,5 +28,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ### venv
 
 ```
+sudo apt-get install python3-pip
 python3 -m pip install --user virtualenv
 ```

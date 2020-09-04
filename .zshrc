@@ -69,7 +69,6 @@ ZSH_THEME="bira"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  go
   git
   npm
   nvm
@@ -123,3 +122,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export EDITOR=vim
+export CURRENT_UID="$(id -u):$(id -g)"
+
+if [ -f $HOME/.bashrc_secrets ]; then
+  . $HOME/.bashrc_secrets
+fi
