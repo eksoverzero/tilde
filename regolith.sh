@@ -26,13 +26,12 @@ echo "Installing fonts..."
 ln -s $PWD/.fonts ~/.fonts
 fc-cache -f -v
 
-# ZSH
-echo "Installing and configuring ZSH..."
-sudo apt-get install -y zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-rm -f ~/.zshrc && \
-ln -s $PWD/.zshrc ~/.zshrc
-chsh -s $(which zsh)
+# Oh My Bash
+# https://github.com/ohmybash/oh-my-bash
+echo "Installing and configuring Oh My Bash..."
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+rm -f ~/.bashrc && \
+ln -s $PWD/.bashrc ~/.bashrc
 
 # Tmux
 echo "Installing and configuring Tmux..."
