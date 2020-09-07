@@ -7,13 +7,20 @@
 # sudo add-apt-repository ppa:kgilmer/speed-ricer
 # sudo apt-get update
 #
-# sudo apt install i3-gaps ubuntu-drivers-common mesa-utils mesa-utils-extra gnupg numlockx xautolock scrot xorg xserver-xorg curl wget unzip wpasupplicant lightdm
+# sudo apt install build-essential ubuntu-drivers-common mesa-utils mesa-utils-extra gnupg curl wget unzip wpasupplicant
+# sudo apt install i3-gaps polybar scrot rofi numlockx xautolock xorg xserver-xorg lightdm
+
+# git clone https://github.com/ryanoasis/nerd-fonts
+
+ln -s $PWD/.config/i3 ~/.config/i3
 
 # py3status
 echo "Installing and configuring py3status..."
 sudo apt-get install -y python3 python3-pip
 sudo pip3 install py3status pytz tzlocal i3ipc
 ln -s $PWD/.config/py3status ~/.config/py3status
+
+ln -s $PWD/.Xresources ~/.Xresources
 
 # Home directories
 echo "Create home directories..."
@@ -32,6 +39,8 @@ echo "Installing and configuring Oh My Bash..."
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 rm -f ~/.bashrc && \
 ln -s $PWD/.bashrc ~/.bashrc
+cp $PWD/.bashrc_secrets.sample $PWD/.bashrc_secrets && \
+ln -s $PWD/.bashrc_secrets ~/.bashrc_secrets
 
 # Tmux
 echo "Installing and configuring Tmux..."

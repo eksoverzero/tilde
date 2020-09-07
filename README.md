@@ -2,6 +2,9 @@
 
 Ubuntu 20.04 LTS with.
 
+https://arcolinux.info/download/
+ArcoLinuxB (i3)
+
 ## Software
 
 Some things that aren't available otherwise.

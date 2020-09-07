@@ -1,9 +1,3 @@
-#include ".Xresources.d/colors"
-#include ".Xresources.d/typeface"
-#include ".Xresources.d/theme"
-
-#include ".Xresources.d/st-term"
-!#include ".Xresources.d/i3-wm"
-#include ".Xresources.d/i3xrocks"
-#include ".Xresources.d/rofi"
-#include ".Xresources.d/gnome"
+#define gtk_theme Adwaita-dark
+#define icon_theme Moka
+#define desktop_wallpaper /home/eksoverzero/Pictures/chalkboard.jpg
