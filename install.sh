@@ -12,15 +12,15 @@
 
 # git clone https://github.com/ryanoasis/nerd-fonts
 
-ln -s $PWD/.config/i3 ~/.config/i3
+ln -s $PWD/.config/i3/config ~/.config/i3/config
+ln -s $PWD/.config/i3/picom.conf ~/.config/i3/picom.conf
+ln -s $PWD/.config/polybar/config ~/.config/polybar/config
+ln -s $PWD/.config/termite/config ~/.config/termite/config
 
-# py3status
-echo "Installing and configuring py3status..."
-sudo apt-get install -y python3 python3-pip
-sudo pip3 install py3status pytz tzlocal i3ipc
-ln -s $PWD/.config/py3status ~/.config/py3status
+ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
+ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 
-ln -s $PWD/.Xresources ~/.Xresources
+ln -s $PWD/.themes ~/.themes
 
 # Home directories
 echo "Create home directories..."
@@ -34,28 +34,28 @@ ln -s $PWD/.fonts ~/.fonts
 fc-cache -f -v
 
 # Oh My Bash
-# https://github.com/ohmybash/oh-my-bash
-echo "Installing and configuring Oh My Bash..."
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-rm -f ~/.bashrc && \
-ln -s $PWD/.bashrc ~/.bashrc
-cp $PWD/.bashrc_secrets.sample $PWD/.bashrc_secrets && \
-ln -s $PWD/.bashrc_secrets ~/.bashrc_secrets
+# https://ohmyz.sh/
+echo "Installing and configuring Oh My Zsh..."
+#bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+rm -f ~/.zshrc && \
+ln -s $PWD/.zshrc ~/.zshrc
+cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
+ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets
 
 # Tmux
 echo "Installing and configuring Tmux..."
-sudo apt-get install -y tmux
+sudo pacman -S tmux
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 
 # Git
 echo "Installing and configuring Git..."
-sudo apt-get install -y git
+sudo pacman -S git
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/.gitignore_global ~/.gitignore_global
 
 # Vim
 echo "Installing and configuring Vim..."
-sudo apt-get install -y vim
+sudo pacman -S vim
 rm -fR ~/.vim && \
 ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc

@@ -1,9 +1,7 @@
 # ~
 
-Ubuntu 20.04 LTS with.
+[ArcoLinuxB (i3)](https://arcolinux.info/download/)
 
-https://arcolinux.info/download/
-ArcoLinuxB (i3)
 
 ## Software
 
