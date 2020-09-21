@@ -1,29 +1,24 @@
 #!/bin/bash
 
-# In the process of ditching regolith
-#
-# sudo apt install git build-essential software-properties-common
-#
-# sudo add-apt-repository ppa:kgilmer/speed-ricer
-# sudo apt-get update
-#
-# sudo apt install build-essential ubuntu-drivers-common mesa-utils mesa-utils-extra gnupg curl wget unzip wpasupplicant
-# sudo apt install i3-gaps polybar scrot rofi numlockx xautolock xorg xserver-xorg lightdm
-
-# git clone https://github.com/ryanoasis/nerd-fonts
-
-ln -s $PWD/.config/i3/config ~/.config/i3/config
-ln -s $PWD/.config/i3/picom.conf ~/.config/i3/picom.conf
-ln -s $PWD/.config/polybar/config ~/.config/polybar/config
+ln -s $PWD/.config/rofi ~/.config/rofi
+ln -s $PWD/.config/i3 ~/.config/i3
+ln -s $PWD/.config/polybar ~/.config/polybar
 ln -s $PWD/.config/termite/config ~/.config/termite/config
 
+ln -s $PWD/.Xdefaults ~/.Xdefaults
 ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 
+ln -s $PWD/.icons ~/.icons
 ln -s $PWD/.themes ~/.themes
 
 # Home directories
 echo "Create home directories..."
+
+# Sites
+rm -fR ~/Sites && \
+ln -s $PWD/Sites ~/Sites
+
 # Pictures
 rm -fR ~/Pictures && \
 ln -s $PWD/Pictures ~/Pictures
@@ -34,13 +29,14 @@ ln -s $PWD/.fonts ~/.fonts
 fc-cache -f -v
 
 # Oh My Bash
-# https://ohmyz.sh/
-echo "Installing and configuring Oh My Zsh..."
-#bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-rm -f ~/.zshrc && \
-ln -s $PWD/.zshrc ~/.zshrc
-cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
-ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets
+# https://ohmybash.github.io/
+echo "Installing and configuring Oh My Bash..."
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+rm -f ~/.bashrc && \
+ln -s $PWD/.bashrc ~/.bashrc
+cp $PWD/.bashrc-secrets.sample $PWD/.bashrc-secrets && \
+ln -s $PWD/.bashrc-secrets ~/.bashrc-secrets
+ln -s $PWD/.bashrc-aliases ~/.bashrc-aliases
 
 # Tmux
 echo "Installing and configuring Tmux..."

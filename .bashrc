@@ -3,7 +3,7 @@ export OSH=/home/eksoverzero/.oh-my-bash
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="agnoster"
+OSH_THEME="90210"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -115,8 +115,23 @@ source $OSH/oh-my-bash.sh
 export EDITOR=vim
 export CURRENT_UID="$(id -u):$(id -g)"
 
-if [ -f $HOME/.bashrc_secrets ]; then
-  . $HOME/.bashrc_secrets
+export INTERNAL_DISPLAY=eDP1
+export PRIMARY_MONITOR=DP1
+
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -f $HOME/.bashrc-aliases ]; then
+  . $HOME/.bashrc-aliases
+fi
+
+if [ -f $HOME/.bashrc-secrets ]; then
+  . $HOME/.bashrc-secrets
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -124,5 +139,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export GOPATH=$HOME/go
 export NVM_DIR="$HOME/.nvm"
 
+# NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

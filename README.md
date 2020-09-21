@@ -11,7 +11,6 @@ Some things that aren't available otherwise.
 
 * [Gravity Theme](https://packagecontrol.io/packages/Theme%20-%20Gravity)
 
-
 ### RVM
 
 ```
@@ -32,3 +31,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 sudo apt-get install python3-pip
 python3 -m pip install --user virtualenv
 ```
+
+### KB
+
+https://github.com/gnebbia/kb/releases/tag/v0.1.1

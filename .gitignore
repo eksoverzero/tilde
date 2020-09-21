@@ -2,7 +2,9 @@
 !.vim/plugins.vim
 .config/regolith/
 !.config/regolith/i3/
+.icons
+!.icons/default
 Pictures
 !Pictures/chalkboard.jpg
 !Pictures/eksoverzero.png
-.zshrc-secrets
+.bashrc-secrets
