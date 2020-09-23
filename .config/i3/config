@@ -52,19 +52,6 @@ set $right semicolon
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
 
-# setting variables for later use
-# use xrandr and/or arandr to know the names of your monitors
-# use this line to tell which monitor is on the right
-# xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-#exec --no-startup-id xrandr --output DVI-I-0 --right-of HDMI-0 --auto
-#exec --no-startup-id xrandr --output DVI-1 --right-of DVI-0 --auto
-#exec --no-startup-id xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
-#exec --no-startup-id xrandr --output HDMI2 --right-of HDMI1 --auto
-
-set_from_resource $monitor DP1
-set_from_resource $monitor_secondary DP3
-
 exec --no-startup-id autorandr
 
 # switch to workspace
@@ -124,7 +111,6 @@ bindsym $mod+space exec --no-startup-id rofi -show run
 
 bindsym $mod+Escape exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock
 bindsym $mod+Shift+Escape exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout
-#bindsym $mod+Shift+Escape exec --no-startup-id arcolinux-logout
 
 #####################################################################################################################
 #################                          reload changed configuration                             #################
@@ -216,11 +202,6 @@ bindsym $mod+v split v
 # Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-# qwerty/azerty issue for letter z
-#bindsym $mod+s layout stacking
-#bindsym $mod+z layout tabbed
-#bindsym $mod+e layout toggle split
 bindsym $mod+BackSpace split toggle
 
 # change focus between tiling / floating windows
@@ -271,7 +252,7 @@ mode "resize" {
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # choose your font
-font pango:Hack 12
+font pango:Hack 11
 
 #####################################################################################################################
 #################                          assign applications to workspaces                       #################
@@ -320,14 +301,6 @@ font pango:Hack 12
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
 
-# USER APPLICATIONS TO START AT BOOT
-
-# ArcoLinux Welcome App
-#exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
-
-# Autotiling
-#exec_always --no-startup-id autotiling
-
 # TRAY APPLICATIONS
 
 # applications that are not installed will not start
@@ -337,13 +310,13 @@ font pango:Hack 12
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Updater
-exec --no-startup-id pamac-tray
+#exec --no-startup-id pamac-tray
 
 # Bluetooth
 #exec --no-startup-id blueberry-tray
 
 # Network
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Dropbox
 #exec --no-startup-id dropbox start
@@ -358,7 +331,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill /home/eksoverzero/Sites/tilde/Pictures/chalkboard.jpg &
+exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg &
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -371,14 +344,14 @@ exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 #exec --no-startup-id xfsettingsd &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+#exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #####################################################################################################################
 #################                          applications keyboard shortcuts                          #################
 #####################################################################################################################
 
 # Terminal
-bindsym $mod+Return exec /usr/bin/xfce4-terminal;focus
+bindsym $mod+Return exec /usr/bin/i3-sensible-terminal;focus
 #bindsym $mod+Return exec "termite --exec='/usr/bin/zsh --login'";focus
 
 # Browser
@@ -458,10 +431,6 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
-#bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-#bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-#bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
-#bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 #####################################################################################################################
 #################                          xbacklight                                               #################

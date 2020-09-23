@@ -1,6 +1,6 @@
 # ~
 
-[ArcoLinuxB (i3)](https://arcolinux.info/download/)
+[ArcoLinux D](https://arcolinux.info/download/)
 
 
 ## Software
@@ -28,7 +28,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ### venv
 
 ```
-sudo apt-get install python3-pip
+cd /tmp && \
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```
+
+```
 python3 -m pip install --user virtualenv
 ```
 
