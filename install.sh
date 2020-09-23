@@ -1,9 +1,48 @@
 #!/bin/bash
 
+# https://dzone.com/articles/arch-linux-installation-on-hw-with-i3-windows-mana-1
+sudo pacman -Syyuu && \
+yay -Syyuu
+
+# Display
+# Nvidia
+sudo pacman -S nvidia nvidia-utils nvidia-settings
+
+# Intel
+sudo pacman -S intel-media-driver
+
+# Sound
+sudo pacman -S alsa-utils alsa-plugins alsa-lib pavucontrol
+
+# i3
+sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
+               numlockx polybar rofi conky dmenu feh betterlockscreen
+
+# Terminal
+sudo pacman -S rxvt-unicode urxvt-perls
+
+# Ranger
+sudo pacman -S atool elinks ffmpegthumbnailer highlight libcaca \
+               lynx mediainfo perl-image-exiftool poppler \
+               python-chardet transmission-cli ueberzug w3m
+
+# LightDM
+sudo pacman -S lightdm lightdm-gtk-greeter
+sudo sed -i 's/#autologin-session=/autologin-session=i3/g' /etc/lightdm/lightdm.conf
+sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/g' /etc/lightdm/lightdm.conf
+sudo systemctl enable lightdm && \
+sudo systemctl start lightdm
+
 ln -s $PWD/.config/rofi ~/.config/rofi
 ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/polybar ~/.config/polybar
 
+<<<<<<< HEAD
+=======
+ln -s $PWD/.xinit.rc ~/.xinit.rc
+ln -s $PWD/.Xdefaults ~/.Xdefaults
+ln -s $PWD/.Xresources ~/.Xresources
+>>>>>>> 4ed9db2... Install updates
 ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 ln -s $PWD/.Xresources ~/.Xresources

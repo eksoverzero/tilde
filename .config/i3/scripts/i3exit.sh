@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 case "$1" in
   lock)
     betterlockscreen -l dimblur -- --timestr="%H:%M"
