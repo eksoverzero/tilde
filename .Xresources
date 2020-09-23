@@ -1,0 +1,107 @@
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
+
+!---------------------------------
+! Xft settings
+! --------------------------------
+!Xft.dpi:       110
+Xft.dpi:        109
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.autohint:   false
+Xft.lcdfilter:  lcddefault
+
+!---------------------------------
+! URXVT Terminal config
+! --------------------------------
+URxvt.depth:                    32
+URxvt*termName:                 screen-256color
+URxvt*geometry:                 240x84
+URxvt.loginShell:               true
+URxvt*scrollColor:              #777777
+URxvt.scrollStyle:              rxvt
+URxvt*scrollTtyKeypress:        true
+URxvt*scrollTtyOutput:          false
+URxvt*scrollWithBuffer:         true
+URxvt*skipScroll:               true
+URxvt*scrollBar:                false
+URxvt*fading:                   45
+URxvt*urgentOnBell:             false
+URxvt*visualBell:               true
+URxvt*mapAlert:                 true
+URxvt*mouseWheelScrollPage:     true
+URxvt*colorUL:                  yellow
+URxvt*underlineColor:           yellow
+URxvt.saveLines:                65535
+URxvt.cursorBlink:              false
+URxvt.utf8:                     true
+URxvt.locale:                   true
+URxvt.letterSpace:              -1
+URxvt.font:             xft:Hack:size=10:style=regular
+URxvt.boldFont:         xft:Hack:size=10:style=bold
+URxvt.background: #2b2b2b
+URxvt.fadeColor:  #2b2b2b
+! Perl extensions
+URxvt.perl-ext-common:     default,matcher
+URxvt.matcher.button:      1
+URxvt.keysym.C-Up:         perl:font-size:increase
+URxvt.keysym.C-Down:       perl:font-size:decrease
+URxvt.keysym.C-S-Up:       perl:font-size:incglobal
+URxvt.keysym.C-S-Down:     perl:font-size:decglobal
+URxvt.keysym.Home:         \033[1~
+URxvt.keysym.End:          \033[4~
+URxvt.keysym.KP_Home:      \033[1~
+URxvt.keysym.KP_End:       \033[4~
+
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false

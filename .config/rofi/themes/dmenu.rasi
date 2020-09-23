@@ -24,6 +24,10 @@ listview {
   lines:   100;
 }
 
+prompt {
+  padding: 0 10px 0 5px;
+}
+
 entry {
   expand: false;
   width:  10em;
