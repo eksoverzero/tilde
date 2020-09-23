@@ -59,7 +59,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 vim +PlugInstall +qall > /dev/null
 
 # Sublime Text
-echo "Configuring Sublime Text 3..."
+echo "Installing and configuring Sublime Text 3..."
+yay -S sublime-text-3
 rm -f ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
 rm -f ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
 ln -s $PWD/.config/sublime-text-3/Packages/User/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
