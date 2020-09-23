@@ -37,15 +37,11 @@ ln -s $PWD/.config/rofi ~/.config/rofi
 ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/polybar ~/.config/polybar
 
-<<<<<<< HEAD
-=======
 ln -s $PWD/.xinit.rc ~/.xinit.rc
-ln -s $PWD/.Xdefaults ~/.Xdefaults
 ln -s $PWD/.Xresources ~/.Xresources
->>>>>>> 4ed9db2... Install updates
 ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
-ln -s $PWD/.Xresources ~/.Xresources
+ln -s $PWD/.config/fontconfig ~/.config/fontconfig
 
 ln -s $PWD/.icons ~/.icons
 ln -s $PWD/.themes ~/.themes
