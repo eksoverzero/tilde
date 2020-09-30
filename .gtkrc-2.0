@@ -1,7 +1,7 @@
 gtk-theme-name="Adwaita-dark"
-gtk-icon-theme-name="Sardi-Arc"
+gtk-icon-theme-name="Paper"
 gtk-font-name="Hack 10"
-gtk-cursor-theme-name="Simp1e"
+gtk-cursor-theme-name="Paper"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

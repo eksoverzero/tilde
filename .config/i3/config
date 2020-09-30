@@ -100,10 +100,11 @@ bindsym $mod+Shift+Ctrl+9 move container to workspace 19; workspace 19
 #################                          3 menu's in arcolinux                                     #################
 #####################################################################################################################
 
-# start dmenu
-#bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'Hack:size=13'
-
+# rofi
 bindsym $mod+space exec --no-startup-id rofi -show run
+
+# dmenu
+#bindsym $mod+shift+space exec --no-startup-id dmenu_run -i -nb '#202020' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'Hack:size=13'
 
 #####################################################################################################################
 #################                          how to exit, logoff, suspend, ...                        #################
@@ -261,74 +262,17 @@ font pango:Hack 11
 # Assign application to start on a specific workspace
 # you can find the class with the program xprop
 
-# Workspace 1 browser related
-#assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"]                      → 1
-#assign [class="Chromium|Google-chrome"]                                             → 1
-
-# Workspace 2 text editor related
-#assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
-#assign [class="Xed|xed|Brackets|Atom|Code|Geany"]                                   → 2
-
-# Workspace 3 Inkscape
-#assign [class="Inkscape"]                                                           → 3
-
-# Workspace 4 Gimp
-#assign [class="Gimp"]                                                               → 4
-
-# Workspace 5 Images and meld
-#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
-#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
-#assign [class="Meld"]                                                               → 5
-
-# Workspace 6 all video related software
-#assign [class="Vlc|vlc"]                                                            → 6
-
-# Workspace 7 virtual machines and settings
-#assign [class="Vmplayer|VirtualBox"]                                                → 7
-
 # Workspace 8 file managers
-#assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
-
-# Workspace 9 email clients
-#assign [class="Geary|Evolution"]                                                    → 9
+assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"] → 8
 
 # Workspace 10 music related
-#assign [class="Spotify|spotify"]                                                    → 10
+assign [class="Spotify|spotify"]                    → 10
 #fix for spotify not moving to workspace 10
-#for_window [class="Spotify"] move to workspace 10
+for_window [class="Spotify"] move to workspace 10
 
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
-
-# TRAY APPLICATIONS
-
-# applications that are not installed will not start
-# you may see a wheel - hashtag out things you do not want
-
-#Authentication dialog
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# Updater
-#exec --no-startup-id pamac-tray
-
-# Bluetooth
-#exec --no-startup-id blueberry-tray
-
-# Network
-#exec --no-startup-id nm-applet
-
-# Dropbox
-#exec --no-startup-id dropbox start
-
-# insync
-#exec --no-startup-id insync start
-
-# clipman
-#exec --no-startup-id xfce4-clipman
-
-# Conky
-#exec --no-startup-id conky -c ~/.config/i3/system-overview
 
 # feh sets wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg &
@@ -341,9 +285,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 #####################################################################################################################
 
 exec --no-startup-id xfce4-power-manager &
-# ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
-# IF xfsettingsd is activated you can not change themes
-#exec --no-startup-id xfsettingsd &
+exec --no-startup-id /usr/bin/dunst &
 #exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #####################################################################################################################
@@ -367,10 +309,7 @@ bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h
 #################                          floating or tiled                                        #################
 #####################################################################################################################
 
-#floating enabled from some programs - find with xprop
-
-for_window [class="Arcolinux-welcome-app.py"] floating enable
-#for_window [class="Arcolinux-tweak-tool.py"] floating enable
+# Floating enabled from some programs - find with xprop
 for_window [class="Bleachbit"] floating disable
 for_window [class="Blueberry.py"] floating enable
 for_window [class="Brasero"] floating disable
@@ -381,7 +320,6 @@ for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
-#for_window [class="qt5ct|Lxappearance] floating enable
 for_window [class="Nitrogen"] floating disable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="Peek"] floating enable
@@ -415,9 +353,7 @@ for_window [window_role="setup"] floating enable
 #################                          give focus to applications                               #################
 #####################################################################################################################
 
-for_window [class="Termite"] focus
-for_window [class="Terminator"] focus
-for_window [class="Gnome-terminal"] focus
+for_window [class="URxvt"] focus
 
 #####################################################################################################################
 #################                          audio settings                                           #################
@@ -438,13 +374,6 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
-
-#####################################################################################################################
-#################                          bar toggle                                               #################
-#####################################################################################################################
-
-# bar toggle, hide or show
-#bindsym $mod+b bar mode toggle
 
 #####################################################################################################################
 #################                          border control                                           #################
@@ -525,93 +454,3 @@ mode "$mode_gaps_outer" {
 #exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 #bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
-
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#################                          bar appearance                                           #################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-
-##START THEMING WM
-#Theme name : ArcoLinux Mater
-
-# Window color settings
-# class                 border  backgr. text    indicator
-client.focused          #a9a9a9 #a9a9a9 #e5e5e5 #a9a9a9
-client.unfocused        #222222 #222222 #aaaaaa #222222
-client.focused_inactive #222222 #222222 #a9a9a9 #222222
-client.placeholder      #222222 #222222 #aaaaaa #222222
-client.urgent           #d42121 #d42121 #f7f7f7 #d42121
-
-client.background       #242424
-
-##STOP THEMING WM
-
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-########################################               THE   END          ###########################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-#####################################################################################################################
-
-
-
-#####################################################################################################################
-#################                          Scratchpad                                               #################
-#####################################################################################################################
-
-# NOT USED
-
-# move the currently focused window to the scratchpad
-# bindsym Mod1+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-# bindsym Mod1+minus scratchpad show
-
-#####################################################################################################################
-#################                          mouse settings in i3                                     #################
-#####################################################################################################################
-
-# NOT USED
-
-# mouse settings
-# The middle button over a titlebar kills the window
-# bindsym --release button2 kill
-
-# The middle button and a modifer over any part of the window kills the window
-# bindsym --whole-window $mod+button2 kill
-
-# The right button toggles floating
-# bindsym button3 floating toggle
-# bindsym $mod+button3 floating toggle
-
-# The side buttons move the window around
-# bindsym button9 move left
-# bindsym button8 move right
-
-#####################################################################################################################
-#################                          keyboard control                                         #################
-#####################################################################################################################
-
-# NOT USED
-
-# Settings of arcolinux will be applied
-#exec --no-startup-id setxkbmap be
-#exec --no-startup-id setxkbmap us
-
-#####################################################################################################################
-#################                          unclutter                                                #################
-#####################################################################################################################
-
-# NOT USED
-
-# get the mouse out of the way with unclutter
-#exec --no-startup-id unclutter

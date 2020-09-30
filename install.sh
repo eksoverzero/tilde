@@ -12,11 +12,12 @@ sudo pacman -S nvidia nvidia-utils nvidia-settings
 sudo pacman -S intel-media-driver
 
 # Sound
-sudo pacman -S alsa-utils alsa-plugins alsa-lib pavucontrol
+sudo pacman -S alsa-utils alsa-plugins alsa-lib pavucontrol playerctl
 
 # i3
 sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
-               numlockx polybar rofi conky dmenu feh betterlockscreen
+               numlockx polybar rofi conky dmenu feh dunst \
+               betterlockscreen paper-icon-theme
 
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
@@ -38,24 +39,31 @@ ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/polybar ~/.config/polybar
 
 ln -s $PWD/.xinit.rc ~/.xinit.rc
+ln -s $PWD/.Xdefaults ~/.Xdefaults
 ln -s $PWD/.Xresources ~/.Xresources
 ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 ln -s $PWD/.config/fontconfig ~/.config/fontconfig
 
+# Icons
+yay -S paper-icon-theme
 ln -s $PWD/.icons ~/.icons
+
+# Themes
 ln -s $PWD/.themes ~/.themes
 
 # Home directories
 echo "Create home directories..."
 
 # Sites
-rm -fR ~/Sites && \
-ln -s $PWD/Sites ~/Sites
+# rm -fR ~/Sites && \
+# ln -s $PWD/Sites ~/Sites
+cp -R $PWD/Sites/* ~/Sites/
 
 # Pictures
-rm -fR ~/Pictures && \
-ln -s $PWD/Pictures ~/Pictures
+# rm -fR ~/Pictures && \
+# ln -s $PWD/Pictures ~/Pictures
+cp -R $PWD/Pictures/* ~/Pictures/
 
 # Fonts
 echo "Installing fonts..."

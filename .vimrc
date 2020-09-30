@@ -53,3 +53,15 @@ let NERDTreeShowHidden=1
 
 " Open/close NERDTree with \t
 nmap <silent> <leader>t :NERDTreeToggle<CR>
+
+" Escape fix
+" https://medium.com/usevim/powerline-escape-fix-e849fd07aad0
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
+
