@@ -17,13 +17,14 @@ sudo pacman -S alsa-utils alsa-plugins alsa-lib pavucontrol playerctl
 # i3
 sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
                numlockx polybar rofi conky dmenu feh dunst \
-               betterlockscreen paper-icon-theme
+               betterlockscreen paper-icon-theme \
+               autorandr xfce4-power-manager
 
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
 
 # Ranger
-sudo pacman -S atool elinks ffmpegthumbnailer highlight libcaca \
+sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
                lynx mediainfo perl-image-exiftool poppler \
                python-chardet transmission-cli ueberzug w3m
 
@@ -34,16 +35,19 @@ sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-gr
 sudo systemctl enable lightdm && \
 sudo systemctl start lightdm
 
+# General things
+sudo pacman -S htop spotify
+
 ln -s $PWD/.config/rofi ~/.config/rofi
 ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/polybar ~/.config/polybar
+ln -s $PWD/.config/dunst ~/.config/dunst
 
 ln -s $PWD/.xinit.rc ~/.xinit.rc
 ln -s $PWD/.Xdefaults ~/.Xdefaults
 ln -s $PWD/.Xresources ~/.Xresources
 ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
-ln -s $PWD/.config/fontconfig ~/.config/fontconfig
 
 # Icons
 yay -S paper-icon-theme
@@ -68,6 +72,7 @@ cp -R $PWD/Pictures/* ~/Pictures/
 # Fonts
 echo "Installing fonts..."
 ln -s $PWD/.fonts ~/.fonts
+ln -s $PWD/.fontconfig ~/.fontconfig
 fc-cache -f -v
 
 # Oh My Bash

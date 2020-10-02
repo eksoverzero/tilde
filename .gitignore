@@ -1,9 +1,7 @@
 .vim
 !.vim/plugins.vim
-.config/regolith/
-!.config/regolith/i3/
 .icons
-!.icons/default
+!.icons/default/index.theme
 Pictures
 !Pictures/chalkboard.jpg
 !Pictures/eksoverzero.png

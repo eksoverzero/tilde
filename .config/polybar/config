@@ -114,10 +114,8 @@ module-margin-right = 1
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Hack:size=11;2"
-font-1 = "FontAwesome:size=11;1"
-font-2 = "Font Awesome 5 Free:style=Regular:size=11;1"
-font-3 = "Font Awesome 5 Free:style=Solid:size=11;1"
-font-4 = "Font Awesome 5 Brands:size=11;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;0"
+font-2 = "Font Awesome 5 Free:style=Regular:size=10;0"
 
 modules-left = i3 | xwindow
 modules-center =

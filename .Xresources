@@ -46,6 +46,8 @@
 *.color14: nord7
 *.color15: nord6
 
+Xcursor.theme: Paper
+
 !---------------------------------
 ! Xft settings
 ! --------------------------------
@@ -92,6 +94,7 @@ URxvt.background: #2b2b2b
 URxvt.fadeColor:  #2b2b2b
 
 ! Perl extensions
+URxvt.perl-lib: ~/.urxvt/ext/
 URxvt.perl-ext-common: default,keyboard-select
 !! Common Keybinds for Navigations
 URxvt.keysym.Shift-Up: command:\033]720;1\007
