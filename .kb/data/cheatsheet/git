@@ -1,0 +1,12 @@
+# Configuring a remote fork
+git clone REPO
+git remote add upstream REPO
+
+# Syncing a remote fork
+git fetch upstream
+git checkout master
+git merge upstream/master
+
+# Fix file permissions
+git config core.filemode false
+

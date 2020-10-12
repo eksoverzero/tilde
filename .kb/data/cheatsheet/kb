@@ -1,0 +1,11 @@
+# Create a new artifact from scratch
+kb add --title "ftp" --category "notes" --tags "protocol;network"
+
+# List all the artifacts having the tags "web" or "pentest":
+kb list --tags "web;pentest"
+kbl --tags "web;pentest"
+
+# List all artifacts belonging to the category "cheatsheet":
+kb list --category cheatsheet
+kbl -c cheatsheet
+

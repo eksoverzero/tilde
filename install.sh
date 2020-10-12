@@ -108,6 +108,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall > /dev/null
 
+# KB
+echo "Installing KB..."
+python3 -m pip install --user kb
+ln -s $PWD/.kb ~/.kb
+
 # Sublime Text
 echo "Installing and configuring Sublime Text 3..."
 yay -S sublime-text-3

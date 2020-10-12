@@ -1,0 +1,10 @@
+# List WiFi Devices
+nmcli radio
+
+# Scan and list networks
+nmcli device wifi rescan
+nmcli device wifi list
+
+# Connect
+nmcli device wifi connect <ssid> password <password>
+
