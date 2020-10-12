@@ -50,6 +50,8 @@ OSH_THEME="90210"
 completions=(
   git
   ssh
+  yay
+  pacman
   composer
 )
 

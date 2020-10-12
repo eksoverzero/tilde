@@ -39,34 +39,12 @@ format-margin =
 format-offset =
 
 [colors]
-; Nord theme ============
 background = #202020
 foreground = #dfdfdf
 alert = #d08770
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
-; =======================
-
-; Gotham theme ==========
-; background = #0a0f14
-; foreground = #99d1ce
-; alert = #d26937
-; volume-min = #2aa889
-; volume-med = #edb443
-; volume-max = #c23127
-; =======================
-
-; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
 
 ################################################################################
 ################################################################################
@@ -91,10 +69,6 @@ height = 30
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-; Background gradient (vertical steps)
-;   background-[0-9]+ = #aarrggbb
-;background-0 =
-
 radius = 0.0
 line-size = 2
 line-color = #000000
@@ -114,12 +88,14 @@ module-margin-right = 1
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Hack:size=11;2"
-font-1 = "Font Awesome 5 Free:style=Solid:size=10;0"
-font-2 = "Font Awesome 5 Free:style=Regular:size=10;0"
+;font-1 = "Font Awesome 5 Pro:size=10;0"
+font-1 = "Font Awesome 5 Pro:style=Regular:size=10;0"
+font-2 = "Font Awesome 5 Pro:style=Solid:size=10;0"
+font-3 = "Font Awesome 5 Brands:size=11;1"
 
-modules-left = i3 | xwindow
+modules-left = i3 xwindow
 modules-center =
-modules-right = load-average battery volume date
+modules-right = load-average temperature battery volume date
 
 ;separator = |
 
@@ -127,11 +103,11 @@ modules-right = load-average battery volume date
 
 tray-detached = false
 tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 2
-tray-maxsize = 20
+tray-offset-y = -1
+tray-padding = 1
+tray-maxsize = 16
 tray-scale = 1.0
-tray-position = right
+tray-position = none
 tray-background = ${colors.background}
 
 #i3: Make the bar appear below windows
@@ -235,15 +211,15 @@ fuzzy-match = false
 ;       v     
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 ws-icon-default = 
 
 ; Available tags:
@@ -357,31 +333,13 @@ type = internal/date
 interval = 5
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = " %Y-%m-%d%"
-date-alt = " %d-%m-%Y"
-time = %H:%M
-time-alt = %H:%M
-format-prefix = 
-format-prefix-foreground = #c1941a
+date = "%a, %b %d"
+time = "%H:%M"
+format-prefix =
+format-padding = 0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date% %time%
-
-#################################################################
-
-[module/discord]
-type = custom/script
-exec = echo " Discord "
-;exec = echo " "
-interval = 1
-tail = true
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix-foreground = #738adb
-format-underline = #738adb
-click-left = discord &
-click-right = killall Discord && killall Discord
-format-prefix = ""
 
 ################################################################################
 
@@ -394,11 +352,12 @@ interval = 100
 ;label = %output%
 label = %output:10%
 
+format-padding = 0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix = "  "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.foreground}
+format-underline =
 
 ################################################################################
 
@@ -439,49 +398,113 @@ format-connected-background = ${colors.background}
 [module/spotify]
 ;https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
 type = custom/script
-exec = ~/.config/polybar/scripts/spotify1.sh
+exec = ~/.config/polybar/scripts/spotify.sh
 interval = 1
 
 ;format = <label>
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-padding = 2
-format-underline = #0f0
-format-prefix = "  "
+format-padding = 0
+format-underline =
+format-prefix = " "
 format-prefix-foreground = #0f0
-label = %output:0:150%
+label = %output:0:65%
 
 ################################################################################
 
 [module/temperature]
 type = custom/script
 exec = ~/.config/polybar/scripts/tempcores.sh
-interval = 2
-format-padding = 1
+interval = 10
+format-padding = 0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-underline = #C1B93E
+format-underline =
 format-prefix-foreground = #C1B93E
 label = %output:0:150%
 
 ################################################################################
 
 [module/volume]
-;https://github.com/jaagr/polybar/wiki/Module:-volume
-type = internal/volume
+;https://github.com/polybar/polybar/wiki/Module:-alsa
+type = internal/alsa
+
+; Soundcard to be used
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+; Name of the master, speaker and headphone mixers
+; Use the following command to list available mixer controls:
+; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
+; If master, speaker or headphone-soundcard isn't the default,
+; use `amixer -c # scontrols` instead where # is the number
+; of the master, speaker or headphone soundcard respectively
+;
+; Default: Master
+master-mixer = Master
+
+; Optionally define speaker and headphone mixers
+; Default: none
+;speaker-mixer = Speaker
+; Default: none
+;headphone-mixer = Headphone
+
+; NOTE: This is required if headphone_mixer is defined
+; Use the following command to list available device controls
+; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
+; You may also need to use `amixer -c # controls` as above for the mixer names
+; Default: none
+;headphone-id = 9
+
+; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
+; Default: false
+;mapped = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 
-label-volume = %percentage%%
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
 label-muted = muted
+;label-muted-foreground = #66
 
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background}
-format-muted-prefix = " "
-format-muted-background = ${colors.background}
-
+; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+
+; If defined, it will replace <ramp-volume> when
+; headphones are plugged in to `headphone_control_numid`
+; If undefined, <ramp-volume> will be used for both
+; Only applies if <ramp-volume> is used
+;ramp-headphones-0 = 
+;ramp-headphones-1 = 
+
+format-padding = 0
+format-muted-prefix = " "
+format-muted-background = ${colors.background}
+format-volume-foreground = ${colors.foreground}
+format-volume-background = ${colors.background}
 
 ################################################################################
 

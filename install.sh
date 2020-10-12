@@ -28,6 +28,8 @@ sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
                lynx mediainfo perl-image-exiftool poppler \
                python-chardet transmission-cli ueberzug w3m
 
+sudo pacman -S aws-cli kubectl
+
 # LightDM
 sudo pacman -S lightdm lightdm-gtk-greeter
 sudo sed -i 's/#autologin-session=/autologin-session=i3/g' /etc/lightdm/lightdm.conf
