@@ -110,7 +110,7 @@ vim +PlugInstall +qall > /dev/null
 
 # KB
 echo "Installing KB..."
-python3 -m pip install --user kb
+yay -S python-kb
 ln -s $PWD/.kb ~/.kb
 
 # Sublime Text
