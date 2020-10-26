@@ -2,6 +2,17 @@
 
 [ArcoLinux D](https://arcolinux.info/download/)
 
+## Manual steps
+
+### Handle suspending when closing the laptop lid
+
+```
+# /etc/systemd/logind.conf
+
+...
+HandleLidSwitch=suspend
+...
+```
 
 ## Software
 
@@ -25,7 +36,7 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ```
 
-### venv
+### Python, PIP and venv
 
 ```
 cd /tmp && \
@@ -35,7 +46,3 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ```
 python3 -m pip install --user virtualenv
 ```
-
-### KB
-
-https://github.com/gnebbia/kb/releases/tag/v0.1.1

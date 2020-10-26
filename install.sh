@@ -28,7 +28,10 @@ sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
                lynx mediainfo perl-image-exiftool poppler \
                python-chardet transmission-cli ueberzug w3m
 
-sudo pacman -S aws-cli kubectl
+# Extra things
+sudo pacman -S newsboat slack-desktop aws-cli kubectl
+
+yay -S wtfutil-bin
 
 # LightDM
 sudo pacman -S lightdm lightdm-gtk-greeter
@@ -44,6 +47,7 @@ ln -s $PWD/.config/rofi ~/.config/rofi
 ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/polybar ~/.config/polybar
 ln -s $PWD/.config/dunst ~/.config/dunst
+ln -s $PWD/.config/autorandr ~/.config/autorandr
 
 ln -s $PWD/.xinit.rc ~/.xinit.rc
 ln -s $PWD/.Xdefaults ~/.Xdefaults
@@ -112,6 +116,11 @@ vim +PlugInstall +qall > /dev/null
 echo "Installing KB..."
 yay -S python-kb
 ln -s $PWD/.kb ~/.kb
+
+# WTF
+echo "Installing WTF..."
+yay -S wtfutil
+ln -s $PWD/.config/wtf ~/.config/wtf
 
 # Sublime Text
 echo "Installing and configuring Sublime Text 3..."

@@ -274,6 +274,9 @@ for_window [class="Spotify"] move to workspace 10
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
 
+# autorandr sets screens
+exec --no-startup-id autorandr --change &
+
 # feh sets wallpaper
 exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg &
 
