@@ -65,3 +65,5 @@ if ! has('gui_running')
   augroup END
 endif
 
+hi Normal ctermbg=none
+
