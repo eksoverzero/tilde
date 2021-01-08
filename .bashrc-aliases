@@ -40,9 +40,12 @@ ex ()
 
 # KB
 alias kbl="kb list"
-alias kbe="kb edit --id"
+alias kbe="kb edit --title"
 alias kba="kb add"
-alias kbv="kb view --id"
-alias kbd="kb delete --id"
+alias kbv="kb view --title"
+alias kbd="kb delete --title"
 alias kbg="kb grep"
 alias kbt="kb list --tags"
+
+# transmission-remote
+alias tsm="transmission-remote"

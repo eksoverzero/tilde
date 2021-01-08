@@ -184,6 +184,7 @@ bindsym Mod1+Ctrl+Left workspace prev
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
+mouse_warping none
 focus_follows_mouse no
 
 #####################################################################################################################
@@ -274,14 +275,13 @@ for_window [class="Spotify"] move to workspace 10
 #################           autostart   -    execute applications at boot time                      #################
 #####################################################################################################################
 
-# autorandr sets screens
-exec --no-startup-id autorandr --change &
-
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/chalkboard.jpg &
+exec --no-startup-id feh --bg-scale --no-fehbg ~/Pictures/chalkboard.jpg &
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+exec_always --no-startup-id /usr/bin/lxsession &
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -306,7 +306,7 @@ bindsym $mod+Shift+Return exec --no-startup-id brave;focus
 #################                          screenshots                                              #################
 #####################################################################################################################
 
-bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
 #####################################################################################################################
 #################                          floating or tiled                                        #################
@@ -362,9 +362,9 @@ for_window [class="URxvt"] focus
 #################                          audio settings                                           #################
 #####################################################################################################################
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer sset Master '5%-'"
+bindsym XF86AudioMute exec --no-startup-id "amixer sset Master toggle"
 #https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next

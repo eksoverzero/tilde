@@ -1,8 +1,3 @@
 .vim
 !.vim/plugins.vim
-.icons
-!.icons/default/index.theme
-Pictures
-!Pictures/chalkboard.jpg
-!Pictures/eksoverzero.png
 .bashrc-secrets

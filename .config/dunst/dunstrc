@@ -1,5 +1,5 @@
 [global]
-font = Hack 11
+font = Hack 11, Noto Emoji 12
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -183,19 +183,19 @@ context = ctrl+shift+period
 #frame_color = "#3B7C87"
 foreground = "#dfdfdf"
 background = "#202020"
-timeout = 4
+timeout = 3
 
 [urgency_normal]
 #frame_color = "#5B8234"
 foreground = "#dfdfdf"
 background = "#202020"
-timeout = 6
+timeout = 3
 
 [urgency_critical]
 #frame_color = "#B7472A"
 foreground = "#db104e"
 background = "#202020"
-timeout = 8
+timeout = 5
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

@@ -117,8 +117,8 @@ source $OSH/oh-my-bash.sh
 export EDITOR=vim
 export CURRENT_UID="$(id -u):$(id -g)"
 
+export PRIMARY_MONITOR=DP2
 export INTERNAL_DISPLAY=eDP1
-export PRIMARY_MONITOR=DP1
 
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
@@ -137,9 +137,11 @@ if [ -f $HOME/.bashrc-secrets ]; then
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export GOPATH=$HOME/go
 export NVM_DIR="$HOME/.nvm"
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export GOPATH=$HOME/go
+export PATH="$PATH:$HOME/go/bin"
 
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

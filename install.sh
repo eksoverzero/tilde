@@ -12,13 +12,17 @@ sudo pacman -S nvidia nvidia-utils nvidia-settings
 sudo pacman -S intel-media-driver
 
 # Sound
-sudo pacman -S alsa-utils alsa-plugins alsa-lib pavucontrol playerctl
+sudo pacman -S alsa-utils alsa-plugins alsa-lib playerctl
+
+# Bluetooth
+sudo pacman -S bluez bluez-utils blueman
 
 # i3
 sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
                numlockx polybar rofi conky dmenu feh dunst \
                betterlockscreen paper-icon-theme \
-               autorandr xfce4-power-manager
+               autorandr xfce4-power-manager lxsession scrot \
+               noto-fonts-emoji nerd-fonts-hack
 
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
@@ -27,11 +31,11 @@ sudo pacman -S rxvt-unicode urxvt-perls
 sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
                lynx mediainfo perl-image-exiftool poppler \
                python-chardet transmission-cli ueberzug w3m
+ln -s $PWD/.config/ranger ~/.config/ranger
 
-# Extra things
-sudo pacman -S newsboat slack-desktop aws-cli kubectl
-
-yay -S wtfutil-bin
+# mpv
+sudo pacman -S mpv
+ln -s $PWD/.config/mpv ~/.config/mpv
 
 # LightDM
 sudo pacman -S lightdm lightdm-gtk-greeter
@@ -41,7 +45,11 @@ sudo systemctl enable lightdm && \
 sudo systemctl start lightdm
 
 # General things
-sudo pacman -S htop spotify
+sudo pacman -S htop spotify slack-desktop \
+               aws-cli kubectl helm \
+               kubectx k9s terraform kustomize
+
+yay -S wtfutil-bin ngrok-bin
 
 ln -s $PWD/.config/rofi ~/.config/rofi
 ln -s $PWD/.config/i3 ~/.config/i3
@@ -66,13 +74,9 @@ ln -s $PWD/.themes ~/.themes
 echo "Create home directories..."
 
 # Sites
-# rm -fR ~/Sites && \
-# ln -s $PWD/Sites ~/Sites
 cp -R $PWD/Sites/* ~/Sites/
 
 # Pictures
-# rm -fR ~/Pictures && \
-# ln -s $PWD/Pictures ~/Pictures
 cp -R $PWD/Pictures/* ~/Pictures/
 
 # Fonts
