@@ -2,7 +2,7 @@
   background-color: #202020;
   border-color:     White;
   text-color:       #dfdfdf;
-  font:             "Hack 13";
+  font:             "Hack 24";
 }
 
 window {
@@ -34,7 +34,7 @@ entry {
 }
 
 element {
-  padding: 0px 2px;
+  padding: 5px 10px;
 }
 
 element selected {

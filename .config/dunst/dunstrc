@@ -1,5 +1,5 @@
 [global]
-font = Hack 11, Noto Emoji 12
+font = Hack 12, Noto Emoji 12
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -69,7 +69,7 @@ hide_duplicate_count = yes
 # the top and down respectevly.
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
-geometry = "450x50-10+40"
+geometry = "450x50-10+60"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -151,7 +151,7 @@ icon_position = left
 max_icon_size = 48
 
 # Paths to default icons.
-icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+# icon_path = /usr/share/icons/Adwaita/16x16/mimetypes/:/usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
 frame_width = 1
 frame_color = "#000000"
@@ -183,19 +183,19 @@ context = ctrl+shift+period
 #frame_color = "#3B7C87"
 foreground = "#dfdfdf"
 background = "#202020"
-timeout = 3
+timeout = 5
 
 [urgency_normal]
 #frame_color = "#5B8234"
 foreground = "#dfdfdf"
 background = "#202020"
-timeout = 3
+timeout = 5
 
 [urgency_critical]
 #frame_color = "#B7472A"
 foreground = "#db104e"
 background = "#202020"
-timeout = 5
+timeout = 20
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

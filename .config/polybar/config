@@ -55,14 +55,12 @@ volume-max = #bf616a
 [bar/mainbar-i3]
 ;https://github.com/jaagr/polybar/wiki/Configuration
 
-monitor = ${env:PRIMARY_MONITOR:}
-monitor-fallback = ${env:INTERNAL_DISPLAY:}
-monitor-strict = true
+monitor =
 override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
-height = 30
+height = 56
 ;offset-x = 1%
 ;offset-y = 1%
 
@@ -87,15 +85,14 @@ module-margin-left = 1
 module-margin-right = 1
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Hack:size=11;2"
-;font-1 = "Font Awesome 5 Pro:size=10;0"
-font-1 = "Font Awesome 5 Pro:style=Regular:size=11;1"
-font-2 = "Font Awesome 5 Pro:style=Solid:size=11;1"
-font-3 = "Font Awesome 5 Brands:size=11;1"
+font-0 = "Hack:size=24;5"
+font-1 = "Font Awesome 5 Pro:style=Regular:size=24;4"
+font-2 = "Font Awesome 5 Pro:style=Solid:size=24;4"
+font-3 = "Font Awesome 5 Brands:size=24;4"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = load-average temperature battery volume date
+modules-right = load-average temperature battery volume volume-bluez date
 
 ;separator = |
 
@@ -425,42 +422,16 @@ label = %output:0:150%
 ################################################################################
 
 [module/volume]
-;https://github.com/polybar/polybar/wiki/Module:-alsa
-type = internal/alsa
+;https://github.com/polybar/polybar/wiki/Module:-pulseaudio
+type = internal/pulseaudio
 
-; Soundcard to be used
-; Usually in the format hw:# where # is the card number
-; You can find the different card numbers in `/proc/asound/cards`
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = bluez_sink.7C_96_D2_51_2C_CD.a2dp_sink
 
-; Name of the master, speaker and headphone mixers
-; Use the following command to list available mixer controls:
-; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
-; If master, speaker or headphone-soundcard isn't the default,
-; use `amixer -c # scontrols` instead where # is the number
-; of the master, speaker or headphone soundcard respectively
-;
-; Default: Master
-master-mixer = Master
-
-; Optionally define speaker and headphone mixers
-; Default: none
-;speaker-mixer = Speaker
-; Default: none
-;headphone-mixer = Headphone
-
-; NOTE: This is required if headphone_mixer is defined
-; Use the following command to list available device controls
-; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
-; You may also need to use `amixer -c # controls` as above for the mixer names
-; Default: none
-;headphone-id = 9
-
-; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
-; Default: false
-;mapped = true
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
@@ -480,24 +451,23 @@ format-volume = <ramp-volume> <label-volume>
 
 ; Available tokens:
 ;   %percentage% (default)
+;   %decibels%
 ;label-volume = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
+;   %decibels%
 label-muted = muted
-;label-muted-foreground = #66
+;label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-; If defined, it will replace <ramp-volume> when
-; headphones are plugged in to `headphone_control_numid`
-; If undefined, <ramp-volume> will be used for both
-; Only applies if <ramp-volume> is used
-;ramp-headphones-0 = 
-;ramp-headphones-1 = 
+; Right and Middle click
+click-right = pavucontrol
+; click-middle =
 
 format-padding = 0
 format-muted-prefix = " "

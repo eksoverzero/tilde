@@ -46,19 +46,18 @@
 *.color14: nord7
 *.color15: nord6
 
-Xcursor.theme: Paper
-
 !---------------------------------
 ! Xft settings
 ! --------------------------------
-!Xft.dpi:       110
-Xft.dpi:        109
+Xft.dpi:        196
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.autohint:   false
 Xft.lcdfilter:  lcddefault
+
+Xcursor.size: 24
 
 !---------------------------------
 ! URXVT Terminal config
@@ -86,10 +85,10 @@ URxvt.cursorBlink:              true
 URxvt.utf8:                     true
 URxvt.locale:                   true
 URxvt.letterSpace:              -1
-URxvt.font: xft:Hack:size=10:Regular
-URxvt.boldFont: xft:Hack:size=10:Bold
-URxvt.italicFont: xft:Hack:size=10:Italic
-URxvt.boldItalicFont: xft:Hack:size=10:Bold:Italic
+URxvt.font: xft:Source Code Pro:size=10:Regular
+URxvt.boldFont: xft:Source Code Pro:size=10:Bold
+URxvt.italicFont: xft:Source Code Pro:size=10:Italic
+URxvt.boldItalicFont: xft:Source Code Pro:size=10:Bold:Italic
 URxvt.background: #2b2b2b
 URxvt.fadeColor:  #2b2b2b
 

@@ -1,89 +1,34 @@
 #!/bin/bash
 
-# https://dzone.com/articles/arch-linux-installation-on-hw-with-i3-windows-mana-1
-sudo pacman -Syyuu && \
-yay -Syyuu
+# General
+sudo apt install -y htop lm-sensors hddtemp
 
-# Display
-# Nvidia
-sudo pacman -S nvidia nvidia-utils nvidia-settings
-
-# Intel
-sudo pacman -S intel-media-driver
-
-# Sound
-sudo pacman -S alsa-utils alsa-plugins alsa-lib playerctl
-
-# Bluetooth
-sudo pacman -S bluez bluez-utils blueman
-
-# i3
-sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
-               numlockx polybar rofi conky dmenu feh dunst \
-               betterlockscreen paper-icon-theme \
-               autorandr xfce4-power-manager lxsession scrot \
-               noto-fonts-emoji nerd-fonts-hack
-
-# Terminal
-sudo pacman -S rxvt-unicode urxvt-perls
-
-# Ranger
-sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
-               lynx mediainfo perl-image-exiftool poppler \
-               python-chardet transmission-cli ueberzug w3m
-ln -s $PWD/.config/ranger ~/.config/ranger
-
-# mpv
-sudo pacman -S mpv
-ln -s $PWD/.config/mpv ~/.config/mpv
-
-# LightDM
-sudo pacman -S lightdm lightdm-gtk-greeter
-sudo sed -i 's/#autologin-session=/autologin-session=i3/g' /etc/lightdm/lightdm.conf
-sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/g' /etc/lightdm/lightdm.conf
-sudo systemctl enable lightdm && \
-sudo systemctl start lightdm
-
-# General things
-sudo pacman -S htop spotify slack-desktop \
-               aws-cli kubectl helm \
-               kubectx k9s terraform kustomize
-
-yay -S wtfutil-bin ngrok-bin
-
-ln -s $PWD/.config/rofi ~/.config/rofi
-ln -s $PWD/.config/i3 ~/.config/i3
-ln -s $PWD/.config/polybar ~/.config/polybar
-ln -s $PWD/.config/dunst ~/.config/dunst
-ln -s $PWD/.config/autorandr ~/.config/autorandr
-
-ln -s $PWD/.xinit.rc ~/.xinit.rc
-ln -s $PWD/.Xdefaults ~/.Xdefaults
+# Regolith
+# https://regolith-linux.org
+# general customisations
+ln -s $PWD/.config/regolith ~/.config/regolith
+# custom look
+ln -s $PWD/.config/regolith/styles/custom /etc/regolith/styles/custom
 ln -s $PWD/.Xresources ~/.Xresources
-ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
-ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 
-# Icons
-yay -S paper-icon-theme
-ln -s $PWD/.icons ~/.icons
+# Polybar
+sudo apt-get install libasound2-dev libpulse-dev
 
-# Themes
-ln -s $PWD/.themes ~/.themes
+
+ln -s $PWD/.config/polybar ~/.config/polybar
+
+# Dunst
+sudo apt-get install dunst
+ln -s $PWD/.config/dunst ~/.config/dunst
 
 # Home directories
 echo "Create home directories..."
 
-# Sites
-cp -R $PWD/Sites/* ~/Sites/
-
 # Pictures
 cp -R $PWD/Pictures/* ~/Pictures/
 
-# Fonts
-echo "Installing fonts..."
-ln -s $PWD/.fonts ~/.fonts
-ln -s $PWD/.fontconfig ~/.fontconfig
-fc-cache -f -v
+sudo apt-get install -y rxvt-unicode
+ln -s $PWD/.urxvt ~/.urxvt
 
 # Oh My Bash
 # https://ohmybash.github.io/
@@ -96,20 +41,22 @@ ln -s $PWD/.bashrc-secrets ~/.bashrc-secrets
 ln -s $PWD/.bashrc-aliases ~/.bashrc-aliases
 
 # Tmux
+# https://github.com/tmux/tmux/wiki
 echo "Installing and configuring Tmux..."
-sudo pacman -S tmux
+sudo apt-get install -y tmux
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 
 # Git
 echo "Installing and configuring Git..."
-sudo pacman -S git
+sudo apt-get install -y git
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/.gitignore_global ~/.gitignore_global
 
 # Vim
 echo "Installing and configuring Vim..."
-sudo pacman -S vim
+sudo apt-get install -y vim
 rm -fR ~/.vim && \
+rm -fR ~/.vimrc && \
 ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -117,18 +64,18 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 vim +PlugInstall +qall > /dev/null
 
 # KB
+# https://github.com/gnebbia/kb
 echo "Installing KB..."
-yay -S python-kb
+python3 -m pip install --user kb-manager
 ln -s $PWD/.kb ~/.kb
 
 # WTF
-echo "Installing WTF..."
+echo "Configuring WTF..."
 yay -S wtfutil
 ln -s $PWD/.config/wtf ~/.config/wtf
 
 # Sublime Text
-echo "Installing and configuring Sublime Text 3..."
-yay -S sublime-text-3
+echo "Configuring Sublime Text 3..."
 rm -f ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
 rm -f ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
 ln -s $PWD/.config/sublime-text-3/Packages/User/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings

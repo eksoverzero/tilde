@@ -1,22 +1,14 @@
 # ~
 
-[ArcoLinux D](https://arcolinux.info/download/)
-
-## Manual steps
-
-### Handle suspending when closing the laptop lid
-
-```
-# /etc/systemd/logind.conf
-
-...
-HandleLidSwitch=suspend
-...
-```
+[Regolith](https://regolith-linux.org/)
 
 ## Software
 
 Some things that aren't available otherwise.
+
+### Polybar
+
+https://github.com/polybar/polybar/wiki/Compiling#dependencies-1
 
 ### Sublime Text Packages
 
@@ -39,10 +31,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ### Python, PIP and venv
 
 ```
-cd /tmp && \
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-```
-
-```
+sudo apt-get install python3-pi
 python3 -m pip install --user virtualenv
 ```
