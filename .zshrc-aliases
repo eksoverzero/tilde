@@ -1,6 +1,6 @@
 # List
 alias ls='ls --color=auto'
-alias lsa='ls -al --color=auto'
+alias lsa='ls -alh --color=auto'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'

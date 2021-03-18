@@ -30,15 +30,15 @@ cp -R $PWD/Pictures/* ~/Pictures/
 sudo apt-get install -y rxvt-unicode
 ln -s $PWD/.urxvt ~/.urxvt
 
-# Oh My Bash
-# https://ohmybash.github.io/
-echo "Installing and configuring Oh My Bash..."
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-rm -f ~/.bashrc && \
-ln -s $PWD/.bashrc ~/.bashrc
-cp $PWD/.bashrc-secrets.sample $PWD/.bashrc-secrets && \
-ln -s $PWD/.bashrc-secrets ~/.bashrc-secrets
-ln -s $PWD/.bashrc-aliases ~/.bashrc-aliases
+# Oh My ZSH
+# https://ohmyz.sh/
+echo "Installing and configuring Oh My ZSH..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -f ~/.zshrc && \
+ln -s $PWD/.zshrc ~/.zshrc
+cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
+ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets
+ln -s $PWD/.zshrc-aliases ~/.zshrc-aliases
 
 # Tmux
 # https://github.com/tmux/tmux/wiki
