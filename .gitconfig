@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
   name = Steven Eksteen
-  email = eksoverzero.zero@gmail.com
+  email = eksoverzero@pm.me
 [core]
   editor = "vim"
   excludesfile = ~/.gitignore_global

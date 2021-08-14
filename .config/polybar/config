@@ -4,7 +4,7 @@
 ;   go to https://github.com/jaagr/polybar
 ;
 ;   The README contains alot of information
-;	Themes : https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
+; Themes : https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
 ;   https://github.com/jaagr/polybar/wiki/
 ;   https://github.com/jaagr/polybar/wiki/Configuration
 ;   https://github.com/jaagr/polybar/wiki/Formatting
@@ -95,7 +95,7 @@ font-3 = "Font Awesome 5 Brands:size=11;1"
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = load-average temperature battery volume date
+modules-right = load-average temperature battery date
 
 ;separator = |
 
@@ -107,7 +107,7 @@ tray-offset-y = 0
 tray-padding = 1
 tray-maxsize = 20
 tray-scale = 1.0
-tray-position =
+tray-position = right
 tray-background = ${colors.background}
 
 #i3: Make the bar appear below windows
@@ -484,7 +484,7 @@ format-volume = <ramp-volume> <label-volume>
 
 ; Available tokens:
 ;   %percentage% (default)
-label-muted = muted
+label-muted = Mute
 ;label-muted-foreground = #66
 
 ; Only applies if <ramp-volume> is used

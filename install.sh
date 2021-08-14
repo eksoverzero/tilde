@@ -4,71 +4,27 @@
 sudo pacman -Syyuu && \
 yay -Syyuu
 
-# Display
-# Nvidia
-sudo pacman -S nvidia nvidia-utils nvidia-settings
-
-# Intel
-sudo pacman -S intel-media-driver
-
-# Sound
-sudo pacman -S alsa-utils alsa-plugins alsa-lib playerctl
-
-# Bluetooth
-sudo pacman -S bluez bluez-utils blueman
-
-# i3
-sudo pacman -S xorg-server xorg-apps xorg-xinit i3-gaps \
-               numlockx polybar rofi conky dmenu feh dunst \
-               betterlockscreen paper-icon-theme \
-               autorandr xfce4-power-manager lxsession scrot \
-               noto-fonts-emoji nerd-fonts-hack
-
-# Terminal
-sudo pacman -S rxvt-unicode urxvt-perls
-
-# Ranger
-sudo pacman -S ranger atool elinks ffmpegthumbnailer highlight libcaca \
-               lynx mediainfo perl-image-exiftool poppler \
-               python-chardet transmission-cli ueberzug w3m
-ln -s $PWD/.config/ranger ~/.config/ranger
-
-# mpv
-sudo pacman -S mpv
-ln -s $PWD/.config/mpv ~/.config/mpv
-
-# LightDM
-sudo pacman -S lightdm lightdm-gtk-greeter
-sudo sed -i 's/#autologin-session=/autologin-session=i3/g' /etc/lightdm/lightdm.conf
-sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-gtk-greeter/g' /etc/lightdm/lightdm.conf
-sudo systemctl enable lightdm && \
-sudo systemctl start lightdm
-
 # General things
-sudo pacman -S htop spotify slack-desktop \
+sudo pacman -S polybar htop autorandr \
+               adobe-source-code-pro-fonts powerline-fonts otf-powerline-symbols \
+               docker docker-compose \
                aws-cli kubectl helm \
                kubectx k9s terraform kustomize
 
-yay -S wtfutil-bin ngrok-bin
+yay -S aws-iam-authenticator \
+       spotify slack-desktop ngrok
 
-ln -s $PWD/.config/rofi ~/.config/rofi
-ln -s $PWD/.config/i3 ~/.config/i3
-ln -s $PWD/.config/polybar ~/.config/polybar
+# Desktop setup
+ln -s $PWD/.config/i3 ~/.i3
 ln -s $PWD/.config/dunst ~/.config/dunst
+ln -s $PWD/.config/polybar ~/.config/polybar
 ln -s $PWD/.config/autorandr ~/.config/autorandr
-
-ln -s $PWD/.xinit.rc ~/.xinit.rc
-ln -s $PWD/.Xdefaults ~/.Xdefaults
-ln -s $PWD/.Xresources ~/.Xresources
-ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
+ln -s $PWD/.config/gtk-2.0 ~/.config/gtk-2.0
 ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
 
-# Icons
-yay -S paper-icon-theme
-ln -s $PWD/.icons ~/.icons
-
-# Themes
-ln -s $PWD/.themes ~/.themes
+ln -s $PWD/.Xresources ~/.Xresources
+ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
+ln -s $PWD/.dmenurc ~/.dmenurc
 
 # Home directories
 echo "Create home directories..."
@@ -85,15 +41,15 @@ ln -s $PWD/.fonts ~/.fonts
 ln -s $PWD/.fontconfig ~/.fontconfig
 fc-cache -f -v
 
-# Oh My Bash
-# https://ohmybash.github.io/
-echo "Installing and configuring Oh My Bash..."
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-rm -f ~/.bashrc && \
-ln -s $PWD/.bashrc ~/.bashrc
-cp $PWD/.bashrc-secrets.sample $PWD/.bashrc-secrets && \
-ln -s $PWD/.bashrc-secrets ~/.bashrc-secrets
-ln -s $PWD/.bashrc-aliases ~/.bashrc-aliases
+# Oh My ZSH
+# https://ohmyz.sh/
+echo "Installing and configuring Oh My ZSH..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -f ~/.zshrc && \
+ln -s $PWD/.zshrc ~/.zshrc
+cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
+ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets
+ln -s $PWD/.zshrc-aliases ~/.zshrc-aliases
 
 # Tmux
 echo "Installing and configuring Tmux..."
