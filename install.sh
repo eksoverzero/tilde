@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# https://dzone.com/articles/arch-linux-installation-on-hw-with-i3-windows-mana-1
-sudo pacman -Syyuu && \
-yay -Syyuu
+# https://github.com/heckelson/i3-and-kde-plasma
+# https://github.com/avivace/dotfiles
+sudo pacman -Syyuu
 
 # General things
-sudo pacman -S polybar htop autorandr \
-               adobe-source-code-pro-fonts powerline-fonts otf-powerline-symbols \
-               docker docker-compose \
+sudo pacman -S base-devel yay htop \
+               i3-gaps i3status wmctrl dmenu
+
+sudo pacman -S docker docker-compose \
                aws-cli kubectl helm \
                kubectx k9s terraform kustomize
 
@@ -15,16 +16,11 @@ yay -S aws-iam-authenticator \
        spotify slack-desktop ngrok
 
 # Desktop setup
-ln -s $PWD/.config/i3 ~/.i3
-ln -s $PWD/.config/dunst ~/.config/dunst
-ln -s $PWD/.config/polybar ~/.config/polybar
-ln -s $PWD/.config/autorandr ~/.config/autorandr
-ln -s $PWD/.config/gtk-2.0 ~/.config/gtk-2.0
-ln -s $PWD/.config/gtk-3.0 ~/.config/gtk-3.0
-
+ln -s $PWD/.config/i3 ~/.config/i3
+ln -s $PWD/.config/bspwm ~/.config/bspwm
+ln -s $PWD/.config/sxhkd ~/.config/sxhkd
+ln -s $PWD/.urxvt ~/.urxvt
 ln -s $PWD/.Xresources ~/.Xresources
-ln -s $PWD/.gtkrc-2.0 ~/.gtkrc-2.0
-ln -s $PWD/.dmenurc ~/.dmenurc
 
 # Home directories
 echo "Create home directories..."
@@ -84,8 +80,13 @@ ln -s $PWD/.config/wtf ~/.config/wtf
 
 # Sublime Text
 echo "Installing and configuring Sublime Text 3..."
-yay -S sublime-text-3
-rm -f ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-rm -f ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
-ln -s $PWD/.config/sublime-text-3/Packages/User/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-ln -s $PWD/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap' ~/.config/sublime-text-3/Packages/User/'Default (Linux).sublime-keymap'
+
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+
+sudo pacman -S sublime-text
+
+rm -f ~/.config/sublime-text/Packages/User/Preferences.sublime-settings
+rm -f ~/.config/sublime-text/Packages/User/'Default (Linux).sublime-keymap'
+ln -s $PWD/.config/sublime-text/Packages/User/Preferences.sublime-settings ~/.config/sublime-text/Packages/User/Preferences.sublime-settings
+ln -s $PWD/.config/sublime-text/Packages/User/'Default (Linux).sublime-keymap' ~/.config/sublime-text/Packages/User/'Default (Linux).sublime-keymap'
