@@ -6,12 +6,15 @@ sudo pacman -Syyuu
 
 # General things
 sudo pacman -S base-devel yay htop \
-               i3-gaps i3status wmctrl dmenu
+               bspwm sxhkd dmenu feh
 
 sudo pacman -S docker docker-compose \
                aws-cli kubectl helm \
                kubectx k9s terraform kustomize
 
+sudo usermod -aG docker $USER
+
+yay -Syyuu && \
 yay -S aws-iam-authenticator \
        spotify slack-desktop ngrok
 
@@ -20,6 +23,7 @@ ln -s $PWD/.config/i3 ~/.config/i3
 ln -s $PWD/.config/bspwm ~/.config/bspwm
 ln -s $PWD/.config/sxhkd ~/.config/sxhkd
 ln -s $PWD/.urxvt ~/.urxvt
+ln -s $PWD/.dmenurc ~/.dmenurc
 ln -s $PWD/.Xresources ~/.Xresources
 
 # Home directories
@@ -68,15 +72,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall > /dev/null
 
-# KB
-echo "Installing KB..."
-yay -S python-kb
-ln -s $PWD/.kb ~/.kb
-
 # WTF
 echo "Installing WTF..."
 yay -S wtfutil
 ln -s $PWD/.config/wtf ~/.config/wtf
+
+# KB
+# https://github.com/gnebbia/kb
+echo "Installing KB..."
+yay -S kb
+ln -s $PWD/.kb ~/.kb
 
 # Sublime Text
 echo "Installing and configuring Sublime Text 3..."
