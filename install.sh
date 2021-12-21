@@ -1,30 +1,27 @@
 #!/bin/bash
 
-# https://github.com/heckelson/i3-and-kde-plasma
-# https://github.com/avivace/dotfiles
-sudo pacman -Syyuu
+sudo apt update && \
+sudo apt upgrade
 
 # General things
-sudo pacman -S base-devel yay htop \
-               bspwm sxhkd dmenu feh
+# sudo pacman -S base-devel yay htop \
+#                bspwm sxhkd dmenu feh
 
-sudo pacman -S docker docker-compose \
-               aws-cli kubectl helm \
-               kubectx k9s terraform kustomize
+# sudo pacman -S docker docker-compose \
+#                aws-cli kubectl helm \
+#                kubectx k9s terraform kustomize
+
+sudo apt install -y build-essential libssl-dev libffi-dev \
+                    git-core snapd htop curl \
+                    python-dev python3-pip python3-venv
+
+sudo apt install docker docker-compose
 
 sudo usermod -aG docker $USER
 
-yay -Syyuu && \
-yay -S aws-iam-authenticator \
-       spotify slack-desktop ngrok
-
 # Desktop setup
-ln -s $PWD/.config/i3 ~/.config/i3
-ln -s $PWD/.config/bspwm ~/.config/bspwm
-ln -s $PWD/.config/sxhkd ~/.config/sxhkd
-ln -s $PWD/.urxvt ~/.urxvt
-ln -s $PWD/.dmenurc ~/.dmenurc
-ln -s $PWD/.Xresources ~/.Xresources
+ln -s $PWD/.Xresources-regolith ~/.Xresources-regolith
+ln -s $PWD/.config/regolith/styles ~/.config/regolith/styles
 
 # Home directories
 echo "Create home directories..."
@@ -35,36 +32,33 @@ cp -R $PWD/Sites/* ~/Sites/
 # Pictures
 cp -R $PWD/Pictures/* ~/Pictures/
 
-# Fonts
-echo "Installing fonts..."
-ln -s $PWD/.fonts ~/.fonts
-ln -s $PWD/.fontconfig ~/.fontconfig
-fc-cache -f -v
-
 # Oh My ZSH
 # https://ohmyz.sh/
 echo "Installing and configuring Oh My ZSH..."
+sudo apt install zsh fonts-powerline
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir -p ~/.zsh
+git clone https://github.com/reobin/typewritten.git ~/.zsh/typewritten
 rm -f ~/.zshrc && \
 ln -s $PWD/.zshrc ~/.zshrc
 cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
-ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets
+ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets && \
 ln -s $PWD/.zshrc-aliases ~/.zshrc-aliases
+chsh -s $(which zsh)
 
 # Tmux
 echo "Installing and configuring Tmux..."
-sudo pacman -S tmux
+sudo apt install tmux
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 
 # Git
 echo "Installing and configuring Git..."
-sudo pacman -S git
 ln -s $PWD/.gitconfig ~/.gitconfig
 ln -s $PWD/.gitignore_global ~/.gitignore_global
 
 # Vim
 echo "Installing and configuring Vim..."
-sudo pacman -S vim
+sudo apt install vim
 rm -fR ~/.vim && \
 ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc
@@ -80,7 +74,7 @@ ln -s $PWD/.config/wtf ~/.config/wtf
 # KB
 # https://github.com/gnebbia/kb
 echo "Installing KB..."
-yay -S kb
+sudo pip3 install -U kb-manager
 ln -s $PWD/.kb ~/.kb
 
 # Sublime Text

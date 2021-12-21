@@ -84,7 +84,6 @@ plugins=(
   bundler
   kubectl
   virtualenv
-  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -145,9 +144,9 @@ export PATH="$PATH:$HOME/go/bin"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export TYPEWRITTEN_SYMBOL=">"
 export TYPEWRITTEN_RELATIVE_PATH="git"
 
 fpath+=$HOME/.zsh/typewritten
 autoload -U promptinit; promptinit
 prompt typewritten
-
