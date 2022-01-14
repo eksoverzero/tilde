@@ -11,8 +11,8 @@ regolith.look: nord-custom
 
 ! -- Applications
 ! These files map values defined above into specific app settings.
-#include "/etc/regolith/styles/st-term"
-#include "/etc/regolith/styles/i3-wm"
-#include "/etc/regolith/styles/i3xrocks"
-#include "/etc/regolith/styles/rofi"
-#include "/etc/regolith/styles/gnome"
+#include "/home/eksoverzero/.config/regolith/styles/st-term"
+#include "/home/eksoverzero/.config/regolith/styles/i3-wm"
+#include "/home/eksoverzero/.config/regolith/styles/i3xrocks"
+#include "/home/eksoverzero/.config/regolith/styles/rofi"
+#include "/home/eksoverzero/.config/regolith/styles/gnome"

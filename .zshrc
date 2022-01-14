@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,10 +74,10 @@ plugins=(
   git
   npm
   nvm
-  rvm
   node
   ruby
   tmux
+  rbenv
   docker
   golang
   python
@@ -133,20 +133,12 @@ if [ -f $HOME/.zshrc-secrets ]; then
   . $HOME/.zshrc-secrets
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export NVM_DIR="$HOME/.nvm"
-export PATH="$PATH:$HOME/.rvm/bin"
-
 export GOPATH=$HOME/go
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 # NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export TYPEWRITTEN_SYMBOL=">"
-export TYPEWRITTEN_RELATIVE_PATH="git"
-
-fpath+=$HOME/.zsh/typewritten
-autoload -U promptinit; promptinit
-prompt typewritten
+eval "$(rbenv init -)"

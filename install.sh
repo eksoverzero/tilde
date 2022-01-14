@@ -12,16 +12,23 @@ sudo apt upgrade
 #                kubectx k9s terraform kustomize
 
 sudo apt install -y build-essential libssl-dev libffi-dev \
-                    git-core snapd htop curl \
-                    python-dev python3-pip python3-venv
+                    git-core htop curl \
+                    python-dev python3-pip python3-venv \
+                    polybar lm-sensors libpq-dev
 
-sudo apt install docker docker-compose
-
+sudo apt install docker.io docker-compose
 sudo usermod -aG docker $USER
 
 # Desktop setup
 ln -s $PWD/.Xresources-regolith ~/.Xresources-regolith
+ln -s $PWD/.config/regolith/Xresources ~/.config/regolith/Xresources
 ln -s $PWD/.config/regolith/styles ~/.config/regolith/styles
+rm -fR ~/.config/regolith/i3 && \
+ln -s $PWD/.config/regolith/i3 ~/.config/regolith/i3
+rm -fR ~/.config/regolith/i3xrocks && \
+ln -s $PWD/.config/regolith/i3xrocks ~/.config/regolith/i3xrocks
+
+ln -s $PWD/.local/bin ~/.local/bin
 
 # Home directories
 echo "Create home directories..."

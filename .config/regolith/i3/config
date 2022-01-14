@@ -69,6 +69,15 @@ set_from_resource $ws17 i3-wm.workspace.17.name "17"
 set_from_resource $ws18 i3-wm.workspace.18.name "18"
 set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
+workspace "1" output primary
+workspace "2" output primary
+workspace "3" output primary
+workspace "4" output primary
+workspace "5" output primary
+workspace "6" output primary
+workspace "7" output primary
+workspace "8" output primary
+
 ###############################################################################
 # Workspace Keys
 # These are the keys which will be used while binding workspace switching
@@ -95,7 +104,8 @@ bindsym $mod+$i3-wm.binding.terminal exec /usr/bin/x-terminal-emulator
 
 ## Launch // Browser // <><Shift> Enter ##
 set_from_resource $i3-wm.binding.browser i3-wm.binding.browser Shift+Return
-bindsym $mod+$i3-wm.binding.browser exec gtk-launch $(xdg-settings get default-web-browser)
+#bindsym $mod+$i3-wm.binding.browser exec gtk-launch $(xdg-settings get default-web-browser)
+bindsym $mod+$i3-wm.binding.browser exec /snap/bin/firefox
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
@@ -477,40 +487,40 @@ set_from_resource $i3-wm.binding.dec_gaps_big i3-wm.binding.dec_gaps_big Shift+m
 
 ## Resize // Enter Resize Mode // <> r ##
 mode "Resize Mode" {
-        # These bindings trigger as soon as you enter the resize mode
+  # These bindings trigger as soon as you enter the resize mode
 
-        ## Resize // Resize Window // ↑ ↓ ← → ##
-        bindsym Left resize shrink width 6 px or 6 ppt
-        bindsym Down resize grow height 6 px or 6 ppt
-        bindsym Up resize shrink height 6 px or 6 ppt
-        bindsym Right resize grow width 6 px or 6 ppt
+  ## Resize // Resize Window // ↑ ↓ ← → ##
+  bindsym Left resize shrink width 6 px or 6 ppt
+  bindsym Down resize grow height 6 px or 6 ppt
+  bindsym Up resize shrink height 6 px or 6 ppt
+  bindsym Right resize grow width 6 px or 6 ppt
 
-        bindsym Shift+Left resize shrink width 12 px or 12 ppt
-        bindsym Shift+Down resize grow height 12 px or 12 ppt
-        bindsym Shift+Up resize shrink height 12 px or 12 ppt
-        bindsym Shift+Right resize grow width 12 px or 12 ppt
+  bindsym Shift+Left resize shrink width 12 px or 12 ppt
+  bindsym Shift+Down resize grow height 12 px or 12 ppt
+  bindsym Shift+Up resize shrink height 12 px or 12 ppt
+  bindsym Shift+Right resize grow width 12 px or 12 ppt
 
-        ## Resize // Resize Window // k j h l ##
-        bindsym $i3-wm.binding.left resize shrink width 6 px or 6 ppt
-        bindsym $i3-wm.binding.up resize grow height 6 px or 6 ppt
-        bindsym $i3-wm.binding.down resize shrink height 6 px or 6 ppt
-        bindsym $i3-wm.binding.right resize grow width 6 px or 6 ppt
+  ## Resize // Resize Window // k j h l ##
+  bindsym $i3-wm.binding.left resize shrink width 6 px or 6 ppt
+  bindsym $i3-wm.binding.up resize grow height 6 px or 6 ppt
+  bindsym $i3-wm.binding.down resize shrink height 6 px or 6 ppt
+  bindsym $i3-wm.binding.right resize grow width 6 px or 6 ppt
 
-        bindsym $i3-wm.binding.move_left resize shrink width 12 px or 12 ppt
-        bindsym $i3-wm.binding.move_up resize grow height 12 px or 12 ppt
-        bindsym $i3-wm.binding.move_down resize shrink height 12 px or 12 ppt
-        bindsym $i3-wm.binding.move_right resize grow width 12 px or 12 ppt
+  bindsym $i3-wm.binding.move_left resize shrink width 12 px or 12 ppt
+  bindsym $i3-wm.binding.move_up resize grow height 12 px or 12 ppt
+  bindsym $i3-wm.binding.move_down resize shrink height 12 px or 12 ppt
+  bindsym $i3-wm.binding.move_right resize grow width 12 px or 12 ppt
 
-        ## Resize // Window Gaps // + - ##
-        bindsym $i3-wm.binding.dec_gaps gaps inner current minus 6
-        bindsym $i3-wm.binding.inc_gaps gaps inner current plus 6
-        bindsym $i3-wm.binding.dec_gaps_big gaps inner current minus 12
-        bindsym $i3-wm.binding.inc_gaps_big gaps inner current plus 12
+  ## Resize // Window Gaps // + - ##
+  bindsym $i3-wm.binding.dec_gaps gaps inner current minus 6
+  bindsym $i3-wm.binding.inc_gaps gaps inner current plus 6
+  bindsym $i3-wm.binding.dec_gaps_big gaps inner current minus 12
+  bindsym $i3-wm.binding.inc_gaps_big gaps inner current plus 12
 
-        ## Resize // Exit Resize Mode // Escape or Enter ##
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  ## Resize // Exit Resize Mode // Escape or Enter ##
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "Resize Mode"
 
@@ -629,15 +639,15 @@ bar {
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
   colors {
-      background $i3-wm.bar.background.color
-      statusline $i3-wm.bar.statusline.color
-      separator  $i3-wm.bar.separator.color
+    background $i3-wm.bar.background.color
+    statusline $i3-wm.bar.statusline.color
+    separator  $i3-wm.bar.separator.color
 
 #                        BORDER  BACKGROUND TEXT
-      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
-      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
-      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
-      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+    focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
+    active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
+    inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
+    urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
   }
 }
 
