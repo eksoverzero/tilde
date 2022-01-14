@@ -1,4 +1,0 @@
-rofi.lines: 5
-rofi.theme: ~/.config/rofi/themes/dmenu.rasi
-rofi.icon-theme: Zafiro-icons
-rofi.show-icons: true

@@ -1,2 +1,4 @@
-[icon theme]
-Inherits=Paper
+[Icon Theme]
+Name=Default
+Comment=Default Cursor Theme
+Inherits=xcursor-breeze
