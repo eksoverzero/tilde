@@ -3,12 +3,13 @@
 sudo pacman -Syyuu
 
 # General requirements
-sudo pacman -S base-devel git
+sudo pacman -S base-devel git python-pip
 
 yay -Syyuu
 
 # General things
-sudo pacman -S htop spotify slack-desktop \
+sudo pacman -S htop \
+               docker docker-compose \
                aws-cli kubectl helm \
                kubectx k9s terraform kustomize
 
@@ -21,15 +22,21 @@ cp -R $PWD/Sites/* ~/Sites/
 # Pictures
 cp -R $PWD/Pictures/* ~/Pictures/
 
-# Oh My Bash
-# https://ohmybash.github.io/
-echo "Installing and configuring Oh My Bash..."
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-rm -f ~/.bashrc && \
-ln -s $PWD/.bashrc ~/.bashrc
-cp $PWD/.bashrc-secrets.sample $PWD/.bashrc-secrets && \
-ln -s $PWD/.bashrc-secrets ~/.bashrc-secrets
-ln -s $PWD/.bashrc-aliases ~/.bashrc-aliases
+# i3
+sudo pacman -S manjaro-i3-settings
+cp -r /etc/skel /home/eksoverzero/
+rm -fR ~/.i3 && \
+ln -s $PWD/.i3 ~/.i3
+
+# Oh My ZSH
+echo "Installing and configuring Oh My ZSH..."
+sudo pacman -S zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -f ~/.zshrc && \
+ln -s $PWD/.zshrc ~/.zshrc
+cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
+ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets && \
+ln -s $PWD/.zshrc-aliases ~/.zshrc-aliases
 
 # Terminal
 sudo pacman -S rxvt-unicode urxvt-perls
@@ -57,7 +64,7 @@ vim +PlugInstall +qall > /dev/null
 
 # KB
 echo "Installing KB..."
-yay -S python-kb
+pip install -U kb-manager
 ln -s $PWD/.kb ~/.kb
 
 # WTF
