@@ -1,6 +1,6 @@
 # ~
 
-[Mangaro XFCE](https://manjaro.org/download/)
+[Pop!_OS](https://pop.system76.com/)
 
 ## Software
 

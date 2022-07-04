@@ -74,10 +74,9 @@ plugins=(
   git
   npm
   nvm
+  rvm
   node
   ruby
-  tmux
-  rbenv
   docker
   golang
   python
