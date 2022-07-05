@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo apt install build-essential software-properties-common git curl \
-                 htop
-
 # Home directories
 echo "Create home directories..."
 
@@ -14,11 +11,11 @@ cp -R $PWD/Pictures/* ~/Pictures/
 
 # Oh My ZSH
 echo "Installing and configuring Oh My ZSH..."
-sudo apt install zsh
+sudo pacman -S zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 rm -f ~/.zshrc && \
 ln -s $PWD/.zshrc ~/.zshrc
-cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \q
+cp $PWD/.zshrc-secrets.sample $PWD/.zshrc-secrets && \
 ln -s $PWD/.zshrc-secrets ~/.zshrc-secrets && \
 ln -s $PWD/.zshrc-aliases ~/.zshrc-aliases
 chsh -s $(which zsh)
