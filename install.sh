@@ -9,6 +9,14 @@ cp -R $PWD/Sites/* ~/Sites/
 # Pictures
 cp -R $PWD/Pictures/* ~/Pictures/
 
+rm -fR ~/.Xresources && \
+ln -s $PWD/.Xresources ~/.Xresources
+rm -fR ~/.i3 && \
+ln -s $PWD/.i3 ~/.i3
+rm -fR ~/.config/i3status && \
+ln -s $PWD/.config/i3status ~/.config/i3status
+
+
 # Oh My ZSH
 echo "Installing and configuring Oh My ZSH..."
 sudo pacman -S zsh
@@ -27,7 +35,6 @@ ln -s $PWD/.gitignore_global ~/.gitignore_global
 
 # Vim
 echo "Installing and configuring Vim..."
-sudo apt install vim
 rm -fR ~/.vim && \
 ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc
@@ -35,13 +42,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall > /dev/null
 
-# NVM
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-
 # Rbenv
-sudo apt install libssl-dev libreadline-dev zlib1g-dev autoconf bison libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
-sudo apt install postgresql postgresql-contrib libpq-dev
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+yay -S rbenv ruby-build
 
 # KB
 echo "Installing KB..."

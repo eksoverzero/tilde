@@ -1,6 +1,6 @@
 # ~
 
-[Pop!_OS](https://pop.system76.com/)
+[Manjaro i3](https://manjaro.org/)
 
 ## Software
 

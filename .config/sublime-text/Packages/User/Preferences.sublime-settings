@@ -1,0 +1,21 @@
+{
+	"color_scheme": "Packages/Theme - Gravity/Monokai Gravity.sublime-color-scheme",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Hack",
+	"font_size": 10,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"new_window_settings":
+	{
+		"menu_visible": false,
+	},
+	"scroll_past_end": false,
+	"tab_size": 2,
+	"theme": "Gravity.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": false,
+}
