@@ -26,11 +26,11 @@ load {
 }
 
 battery all {
-  format = " %status%percentage"
+  format = " %status %percentage"
   format_down = "No battery"
   last_full_capacity = true
   integer_battery_capacity = true
-  status_chr = ""
+  status_chr = ""
   status_bat = ""
   status_unk = ""
   status_full = ""

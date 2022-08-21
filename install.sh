@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sudo pacman -Syyuu
+sudo pacman -S base-devel git python-pip\
+               openssl postgresql-libs
+
 # Home directories
 echo "Create home directories..."
 
@@ -15,7 +19,6 @@ rm -fR ~/.i3 && \
 ln -s $PWD/.i3 ~/.i3
 rm -fR ~/.config/i3status && \
 ln -s $PWD/.config/i3status ~/.config/i3status
-
 
 # Oh My ZSH
 echo "Installing and configuring Oh My ZSH..."
