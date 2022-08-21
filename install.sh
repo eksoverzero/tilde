@@ -38,6 +38,7 @@ ln -s $PWD/.gitignore_global ~/.gitignore_global
 
 # Vim
 echo "Installing and configuring Vim..."
+sudo pacman -S vim
 rm -fR ~/.vim && \
 ln -s $PWD/.vim ~/.vim && \
 ln -s $PWD/.vimrc ~/.vimrc
